@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class HandAttack : MonoBehaviour
 {
     [SerializeField] private Transform player;
+    [SerializeField] private Collider handHitbox;
     private Animator _animator;
     private bool _isAttacking = false;
     private void Awake()
@@ -17,6 +18,9 @@ public class HandAttack : MonoBehaviour
         }
 
         _animator = GetComponent<Animator>();
+
+        if (handHitbox != null) 
+            handHitbox.enabled = false;
     }
 
     // Update is called once per frame
@@ -25,11 +29,16 @@ public class HandAttack : MonoBehaviour
         
     }
 
+    
     public void Attack()
     {
         if (!_isAttacking)
         {
             _isAttacking = true;
+
+            if (handHitbox != null)
+                handHitbox.enabled = true;
+
             _animator.SetTrigger("Attack");
         }
     }
@@ -37,5 +46,9 @@ public class HandAttack : MonoBehaviour
     public void AttackFinished()
     {
         _isAttacking = false;
+
+        if (handHitbox != null)
+            handHitbox.enabled = false;
     }
+
 }
