@@ -38,9 +38,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _rigidbody.useGravity = false;
-        _rigidbody.constraints =
-            RigidbodyConstraints.FreezeRotationX |
-            RigidbodyConstraints.FreezeRotationZ;
 
         _move = InputSystem.actions.FindAction("Move");
         _look = InputSystem.actions.FindAction("Look");
