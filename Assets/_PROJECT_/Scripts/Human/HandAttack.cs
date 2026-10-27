@@ -117,7 +117,6 @@ public class HandAttack : MonoBehaviour
         _twoBoneIKConstraint.weight = 1;
         _torsoRotationConstraint.weight = 1;
 
-        Debug.Log("Slap");
 
         // Slap Logic
         Vector3 positionAtStartOfSlap = _handTargetTransform.position;
@@ -134,7 +133,6 @@ public class HandAttack : MonoBehaviour
         // Hold Slap
         yield return new WaitForSeconds(_timeToHold);
 
-        Debug.Log("Pullback");
 
         // Return to original pos / release IK weight
         timeOfStart = Time.time;
