@@ -12,6 +12,11 @@ public class HandAttack : MonoBehaviour
     [SerializeField] private Transform _handTargetTransform;
     [SerializeField] private Transform _slapStartPosTransform;
     [SerializeField] private TwoBoneIKConstraint _twoBoneIKConstraint;
+    [Space]
+    [SerializeField] private Transform _torsoRotationTarget;
+    [SerializeField] private MultiRotationConstraint _torsoRotationConstraint;
+
+    [Space(10)]
     private FollowBehavior _followBehavior;
 
     [Header("Settings")]
@@ -83,23 +88,39 @@ public class HandAttack : MonoBehaviour
 
         // TODO: Kinda a sloppy, lazy, and wasteful way to handle the timers. Needs refactoring - TH
 
+        // Calculate torso rotation
+        // y = 7.5 is around about the center of the human
+        float bendPercent = (7.5f - Mathf.Clamp(slapTargetPosition.y, 0, 7.5f)) / 7.5f;
+        float desiredTorsoYRot = bendPercent * 90;
+        float startingTorsoYRot = _torsoRotationTarget.rotation.x;
+
         // Transfer animation to IK and move to slap pos
+        // Rotate torso as needed
         float timeOfStart = Time.time;
         while (Time.time - timeOfStart <= _timeToRaiseHand)
         {
             float t = (Time.time - timeOfStart) / _timeToRaiseHand;
-
+            
+            // Hand
             _twoBoneIKConstraint.weight = t;
             _handTargetTransform.position = Vector3.Lerp(startingHandTargetPosition, _slapStartPosTransform.position, t);
 
+            // Torso
+            _torsoRotationConstraint.weight = t;
+            _torsoRotationTarget.rotation = Quaternion.Euler(Mathf.Lerp(startingTorsoYRot, desiredTorsoYRot, t), 0, 0);
+
             yield return null;
         }
+        // Make sure the torso and IK constraints are fully on
+        /// This means that the original walk animation has NO
+        /// effect on the human rig.
         _twoBoneIKConstraint.weight = 1;
+        _torsoRotationConstraint.weight = 1;
 
         Debug.Log("Slap");
 
         // Slap Logic
-        Vector3 positionAtStartOfSlap = _handTransform.position;
+        Vector3 positionAtStartOfSlap = _handTargetTransform.position;
         float timeOfSlap = Time.time;
         while (Time.time - timeOfSlap <= _timeToReachTarget)
         {
@@ -121,6 +142,7 @@ public class HandAttack : MonoBehaviour
         {
             float t = (Time.time - timeOfStart) / _timeToPullBack;
 
+            // Head
             _twoBoneIKConstraint.weight = 1 - t;
             _handTargetTransform.position = Vector3.Lerp(
                                                 slapTargetPosition, 
@@ -128,11 +150,20 @@ public class HandAttack : MonoBehaviour
                                                 _pullBackLerpCurve.Evaluate(t)
                                             );
 
+            // Torso
+            _torsoRotationConstraint.weight = 1 - t;
+            _torsoRotationTarget.rotation = Quaternion.Euler(Mathf.Lerp(desiredTorsoYRot, startingTorsoYRot, t), 0, 0);
+
             yield return null;
         }
+
         _twoBoneIKConstraint.weight = 0;
 
+        // Make sure torso is reset
+        _torsoRotationConstraint.weight = 0;
+        _torsoRotationTarget.rotation = Quaternion.Euler(startingTorsoYRot, 0, 0);
         
+
         // Re-enable follow logic
         _followBehavior.disableMovement = false;
         _isAttacking = false;
