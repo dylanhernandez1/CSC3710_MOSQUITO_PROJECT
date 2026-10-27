@@ -91,8 +91,8 @@ public class HandAttack : MonoBehaviour
         // Calculate torso rotation
         // y = 7.5 is around about the center of the human
         float bendPercent = (7.5f - Mathf.Clamp(slapTargetPosition.y, 0, 7.5f)) / 7.5f;
-        float desiredTorsoYRot = bendPercent * 90;
-        float startingTorsoYRot = _torsoRotationTarget.rotation.x;
+        float desiredTorsoXRot = bendPercent * 90;
+        float startingTorsoXRot = _torsoRotationTarget.localRotation.x;
 
         // Transfer animation to IK and move to slap pos
         // Rotate torso as needed
@@ -107,7 +107,7 @@ public class HandAttack : MonoBehaviour
 
             // Torso
             _torsoRotationConstraint.weight = t;
-            _torsoRotationTarget.rotation = Quaternion.Euler(Mathf.Lerp(startingTorsoYRot, desiredTorsoYRot, t), 0, 0);
+            _torsoRotationTarget.localRotation = Quaternion.Euler(Mathf.Lerp(startingTorsoXRot, desiredTorsoXRot, t), 0, 0);
 
             yield return null;
         }
@@ -152,7 +152,7 @@ public class HandAttack : MonoBehaviour
 
             // Torso
             _torsoRotationConstraint.weight = 1 - t;
-            _torsoRotationTarget.rotation = Quaternion.Euler(Mathf.Lerp(desiredTorsoYRot, startingTorsoYRot, t), 0, 0);
+            _torsoRotationTarget.localRotation = Quaternion.Euler(Mathf.Lerp(desiredTorsoXRot, startingTorsoXRot, t), 0, 0);
 
             yield return null;
         }
@@ -161,7 +161,7 @@ public class HandAttack : MonoBehaviour
 
         // Make sure torso is reset
         _torsoRotationConstraint.weight = 0;
-        _torsoRotationTarget.rotation = Quaternion.Euler(startingTorsoYRot, 0, 0);
+        _torsoRotationTarget.localRotation = Quaternion.Euler(startingTorsoXRot, 0, 0);
         
 
         // Re-enable follow logic
