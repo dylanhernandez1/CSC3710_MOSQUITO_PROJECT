@@ -5,20 +5,27 @@ using System;
 
 public class FollowBehavior : MonoBehaviour
 {
+    [Header("References")]
+    private NavMeshAgent agent;
+    private BehaviorManager _manager;
+    private Animator _animator;
     [SerializeField] private Transform player;
+
+    [Header("Settings")]
+    public bool disableMovement = false;
+
     [SerializeField] private float followDistance = 2f;
     [SerializeField] private float maxFollowableHeight = 10f;
     [SerializeField] private float attackRange = 2f;
     [SerializeField, Range(0f, 180f)] private float fieldOfView = 90f;
     [SerializeField] private UnityEvent _attack;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private NavMeshAgent agent;
-    private BehaviorManager _manager;
+
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         _manager = GetComponent<BehaviorManager>();
+        _animator = GetComponent<Animator>();
 
         if (player == null)
         {
@@ -31,7 +38,7 @@ public class FollowBehavior : MonoBehaviour
       
     public void Follow()
     {
-        if (player == null)
+        if (disableMovement || player == null)
             return;
 
         float distance = Vector3.Distance(transform.position, player.position);
@@ -48,6 +55,16 @@ public class FollowBehavior : MonoBehaviour
             _manager.SetToDefault();
         }
 
+        // Try to set the property for the blend tree
+        try
+        {
+            _animator.SetFloat("Speed", agent.velocity.magnitude / agent.speed);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Param Speed doesn't exist in animator");
+        }
+
         if (distance > attackRange || _attack == null)
             return;
 
@@ -59,5 +76,11 @@ public class FollowBehavior : MonoBehaviour
         {
             _attack?.Invoke();
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

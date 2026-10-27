@@ -1,11 +1,16 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class StandbyBehavior : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private Transform station;
+    [SerializeField] private Animator _animator;
     private NavMeshAgent agent;
+
+    [Header("Settings")]
     [SerializeField] private float standingDistance = 0f;
 
     void Awake()
@@ -20,6 +25,16 @@ public class StandbyBehavior : MonoBehaviour
         {
             agent.isStopped = false;
             agent.SetDestination(station.position);
+
+            // Try to set the property for the blend tree
+            try
+            {
+                _animator.SetFloat("Speed", agent.velocity.magnitude / agent.speed);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("Param Speed doesn't exist in animator");
+            }
         }
         else
         {
