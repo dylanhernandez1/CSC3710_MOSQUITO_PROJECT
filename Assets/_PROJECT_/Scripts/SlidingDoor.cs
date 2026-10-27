@@ -19,7 +19,7 @@ public class SlidingDoor : MonoBehaviour
     {
         if (!isOpen) return;
 
-        Vector3 target = closedPosition + Vector3.left * slideDistance;
+        Vector3 target = closedPosition + Vector3.up * slideDistance;
 
         doorBody.localPosition = Vector3.MoveTowards(
             doorBody.localPosition,
