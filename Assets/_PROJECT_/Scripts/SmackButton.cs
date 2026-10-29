@@ -1,9 +1,11 @@
 
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SmackButton : MonoBehaviour
 {
-    [SerializeField] private SlidingDoor door;
+    [Header("References")]
+    [SerializeField] private UnityEvent onButtonClicked;
     private bool pressed = false;
 
     private void OnTriggerEnter(Collider other)
@@ -13,7 +15,7 @@ public class SmackButton : MonoBehaviour
         if (other.CompareTag("HumanHand"))
         {
             pressed = true;
-            door.Open();
+            onButtonClicked.Invoke();
         }
     }
 }
