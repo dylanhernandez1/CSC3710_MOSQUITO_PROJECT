@@ -7,6 +7,9 @@ public class BehaviorManager : MonoBehaviour
     [SerializeField] private UnityEvent secondaryBehavior;
     [SerializeField] private UnityEvent tertiaryBehavior;
 
+    [SerializeField] private string secondaryCond = "secondary";
+    [SerializeField] private string tertiaryCond = "tertiary";
+
     [SerializeField] private int _state = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,23 +32,20 @@ public class BehaviorManager : MonoBehaviour
         }
     }
 
-    public void SetToDefault()
+    public void SetState(string cond)
     {
-        _state = 1;
-    }
-
-    public void SetToSecondary()
-    {
-        _state = 2;
-    }
-
-    public void SetToTertiary()
-    {
-        _state = 3;
-    }
-
-    public void SetToDisable()
-    {
-        _state = 0;
+        if (cond == "default" || cond == "")
+        {
+            _state = 1;
+        } else if (cond == secondaryCond)
+        {
+            _state = 2;
+        } else if (cond == tertiaryCond)
+        {
+            _state = 3;
+        } else
+        {
+            Debug.Log("Unknown conditional for behavior manager");
+        }
     }
 }

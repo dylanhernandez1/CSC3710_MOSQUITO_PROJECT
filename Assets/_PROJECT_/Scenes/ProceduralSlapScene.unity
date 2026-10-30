@@ -11851,6 +11851,10 @@ PrefabInstance:
       propertyPath: _state
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2968227417928533282, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: secondaryCond
+      value: angry
+      objectReference: {fileID: 0}
     - target: {fileID: 3263783266981208304, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
       propertyPath: player
       value: 

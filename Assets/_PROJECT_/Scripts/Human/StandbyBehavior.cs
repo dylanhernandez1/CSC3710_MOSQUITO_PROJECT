@@ -34,7 +34,8 @@ public class StandbyBehavior : MonoBehaviour
             }
             catch (Exception e)
             {
-                Debug.Log("Param Speed doesn't exist in animator");
+                Debug.Log("Param Speed doesn't exist in animator: ");
+                Debug.Log(e);
             }
         }
         else

@@ -52,7 +52,7 @@ public class FollowBehavior : MonoBehaviour
         else
         {
             agent.isStopped = true;
-            _manager.SetToDefault();
+            _manager.SetState("default");
         }
 
         // Try to set the property for the blend tree
