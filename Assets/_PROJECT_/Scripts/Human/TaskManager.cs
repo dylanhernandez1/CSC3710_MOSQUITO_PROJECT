@@ -4,6 +4,17 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
+/*
+ * HOW TO USE: this can all be done from the inspector tab
+ * 
+ * Step 1: Add an animation state + trigger in the human's animator with a transition from Any State
+ * Step 2: Create a work station, this requires a game object with the TaskStation script + a trigger hitbox that should envelop the human while working
+ * Step 3: Fill the TaskStation script with the name of the animation trigger and the location where the animation will be performed. This could be a game object
+ * Step 4: Add this script to the human + assign its ExecuteTasks() function as the default behavior under behavior manager
+ * Step 5: Add work stations to _stations by clicking the '+' button and then dragging/dropping
+ * Step 6: Profit
+ */
+
 public class TaskManager : MonoBehaviour
 {
     [SerializeField] private List<TaskStation> _stations = new();
