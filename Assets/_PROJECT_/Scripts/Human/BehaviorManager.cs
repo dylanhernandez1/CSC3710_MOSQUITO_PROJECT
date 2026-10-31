@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
 public class BehaviorManager : MonoBehaviour
@@ -11,15 +13,29 @@ public class BehaviorManager : MonoBehaviour
     [SerializeField] private string tertiaryCond = "tertiary";
 
     [SerializeField] private int _state = 1;
+
+    private NavMeshAgent _agent;
+    private Animator _animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        _agent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Try to set the property for the blend tree
+        try
+        {
+            _animator.SetFloat("Speed", _agent.velocity.magnitude / _agent.speed);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("Param Speed doesn't exist in animator");
+            Debug.Log(e);
+        }
         if (_state == 1)
         {
             defaultBehavior?.Invoke();
@@ -46,6 +62,15 @@ public class BehaviorManager : MonoBehaviour
         } else
         {
             Debug.Log("Unknown conditional for behavior manager");
+            return;
         }
+        _animator.SetTrigger("Walk");
+        _agent.isStopped = false;
+        _agent.updateRotation = true;
+    }
+
+    public int GetState()
+    {
+        return _state;
     }
 }

@@ -5,7 +5,7 @@ public class SlidingDoor : MonoBehaviour
 {
     [SerializeField] private Transform doorBody;
     [SerializeField] private float slideDistance = 3f;
-    [SerializeField] private float slideSpeed = 2f;
+    //[SerializeField] private float slideSpeed = 2f;
     [SerializeField] private float timeToSlide = 1f;
     [SerializeField] private AnimationCurve slideInterpolationCurve;
 
