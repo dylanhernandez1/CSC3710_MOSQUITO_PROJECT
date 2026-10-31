@@ -62,15 +62,6 @@ public class PlayerController : MonoBehaviour
         RotatePlayer();
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Human"))
-        {
-            collision.gameObject.GetComponent<BehaviorManager>().SetState("angry");
-        }
-        Debug.Log("Hit " + collision.gameObject.name);
-    }
-
     // Public Methods
 
     public void LockCursor()
