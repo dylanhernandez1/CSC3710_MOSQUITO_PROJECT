@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Human"))
         {
-            collision.gameObject.GetComponent<BehaviorManager>().SetToSecondary();
+            collision.gameObject.GetComponent<BehaviorManager>().SetState("angry");
         }
         Debug.Log("Hit " + collision.gameObject.name);
     }

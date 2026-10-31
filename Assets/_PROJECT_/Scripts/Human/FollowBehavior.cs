@@ -52,7 +52,7 @@ public class FollowBehavior : MonoBehaviour
         else
         {
             agent.isStopped = true;
-            _manager.SetToDefault();
+            _manager.SetState("default");
         }
 
         // Try to set the property for the blend tree
@@ -63,6 +63,7 @@ public class FollowBehavior : MonoBehaviour
         catch (Exception e)
         {
             Debug.Log("Param Speed doesn't exist in animator");
+            Debug.Log(e);
         }
 
         if (distance > attackRange || _attack == null)
