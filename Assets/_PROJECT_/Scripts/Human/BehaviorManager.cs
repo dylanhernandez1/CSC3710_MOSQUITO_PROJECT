@@ -1,18 +1,28 @@
+using NUnit.Framework;
 using System;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using System.Collections.Generic;
+using UnityEditor.PackageManager;
+
+[Serializable]
+public struct condEvent
+{
+    public string condition;
+    public UnityEvent behavior;
+}
 
 public class BehaviorManager : MonoBehaviour
 {
-    [SerializeField] private UnityEvent defaultBehavior;
-    [SerializeField] private UnityEvent secondaryBehavior;
-    [SerializeField] private UnityEvent tertiaryBehavior;
+    /* 
+     * Replaced default/secondary behaviors with a fully customizable list of behaviors and associated conditions
+     * Instead of incrementing the state machine, you should use conditionals to switch between states
+     */
 
-    [SerializeField] private string secondaryCond = "secondary";
-    [SerializeField] private string tertiaryCond = "tertiary";
-
-    [SerializeField] private int _state = 1;
+    [SerializeField] private int _state = 0;
+    [SerializeField] private List<condEvent> _events = new();
+    
 
     private NavMeshAgent _agent;
     private Animator _animator;
@@ -21,6 +31,11 @@ public class BehaviorManager : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
+
+        if (_events.Count == 0)
+        {
+            Debug.LogError("BehaviorManager has zero behaviors");
+        }
     }
 
     // Update is called once per frame
@@ -36,37 +51,37 @@ public class BehaviorManager : MonoBehaviour
             Debug.Log("Param Speed doesn't exist in animator");
             Debug.Log(e);
         }
-        if (_state == 1)
+
+        if (_events.Count <= _state)
         {
-            defaultBehavior?.Invoke();
-        } else if (_state == 2)
+            Debug.LogError("BehaviorManager tried to play a state that doesn't exist");
+        } else
         {
-            secondaryBehavior?.Invoke();
-        } else if (_state == 3)
-        {
-            tertiaryBehavior?.Invoke();
+            _events[_state].behavior?.Invoke();
         }
     }
 
     public void SetState(string cond)
     {
-        if (cond == "default" || cond == "")
+        if ((cond == "default" || cond == "") && _events.Count != 0)
         {
-            _state = 1;
-        } else if (cond == secondaryCond)
-        {
-            _state = 2;
-        } else if (cond == tertiaryCond)
-        {
-            _state = 3;
-        } else
-        {
-            Debug.Log("Unknown conditional for behavior manager");
+            _state = 0;
             return;
         }
-        _animator.SetTrigger("Walk");
-        _agent.isStopped = false;
-        _agent.updateRotation = true;
+
+        for (int i = 0; i < _events.Count; i++)
+        {
+            condEvent _event = _events[i];
+
+            if (_event.condition == cond)
+            {
+                _state = i;
+                _animator.SetTrigger("Walk");
+                _agent.isStopped = false;
+                _agent.updateRotation = true;
+                return;
+            }
+        }
     }
 
     public int GetState()

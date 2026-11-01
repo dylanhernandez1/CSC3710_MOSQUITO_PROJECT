@@ -100,9 +100,15 @@ public class TaskManager : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject == _stations[_curStation].gameObject)
+        if (other.gameObject == _stations[_curStation].gameObject && _manager.GetState() == _behaveState)
         {
             _remainingTaskTime -= Time.deltaTime;
+
+            AnimatorStateInfo state = _animator.GetCurrentAnimatorStateInfo(0);
+            if (state.IsName("Base Layer.WalkBlendTree") && !_animator.IsInTransition(0))
+            {
+                StartCoroutine(Debounce());
+            }
         }
     }
 
@@ -129,7 +135,7 @@ public class TaskManager : MonoBehaviour
         transform.rotation = _stations[_curStation].GetLocation().rotation;
         transform.position = _stations[_curStation].GetLocation().position;
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(1f);
 
         _debounce = false;
     }
