@@ -1145,6 +1145,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.38637948
       objectReference: {fileID: 0}
+    - target: {fileID: 2676721439476709451, guid: 0eccb4b058d87c540a5e14de2a9a7acf, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3148224822290892647, guid: 0eccb4b058d87c540a5e14de2a9a7acf, type: 3}
       propertyPath: m_Name
       value: Splat (1)
@@ -24768,6 +24772,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2676721439476709451, guid: 0eccb4b058d87c540a5e14de2a9a7acf, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3148224822290892647, guid: 0eccb4b058d87c540a5e14de2a9a7acf, type: 3}
       propertyPath: m_Name
       value: Splat
