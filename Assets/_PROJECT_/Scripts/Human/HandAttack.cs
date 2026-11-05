@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -18,6 +19,7 @@ public class HandAttack : MonoBehaviour
 
     [Space(10)]
     private FollowBehavior _followBehavior;
+    private HumanUIManager _uiMan;
 
     [Header("Settings")]
     [SerializeField] private float _timeToRaiseHand = .7f;
@@ -45,17 +47,15 @@ public class HandAttack : MonoBehaviour
 
         if (handHitbox != null) 
             handHitbox.enabled = false;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        _uiMan = GetComponent<HumanUIManager>();
     }
 
     
     public void Attack()
     {
+        _uiMan.SetActionBubbleContent("<sprite=7>");
+        
         if (!_isAttacking)
         {
             _isAttacking = true;

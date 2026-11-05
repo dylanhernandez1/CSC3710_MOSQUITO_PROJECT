@@ -4,6 +4,9 @@ using UnityEngine.Events;
 
 public class RagdollBehavior : MonoBehaviour
 {
+    // Terribly ugly temp implementation of refs, will refactor soon
+    private HumanUIManager _uiMan;
+
     private Animator _animator;
     private NavMeshAgent _agent;
     private CapsuleCollider _capsule;
@@ -18,6 +21,7 @@ public class RagdollBehavior : MonoBehaviour
         _animator = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
         _capsule = GetComponent<CapsuleCollider>();
+        _uiMan = GetComponent<HumanUIManager>();
     }
 
     public void SetRagdoll(bool enabled)
@@ -36,6 +40,8 @@ public class RagdollBehavior : MonoBehaviour
     // Update is called once per frame
     public void Die()
     {
+        _uiMan.SetActionBubbleContent("<sprite=6>");
+        
         if (_first != true)
         {
             return;

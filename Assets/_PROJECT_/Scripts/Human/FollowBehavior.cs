@@ -38,6 +38,8 @@ public class FollowBehavior : MonoBehaviour
       
     public void Follow()
     {
+        _manager.humanManager.uIManager.SetActionBubbleContent("<sprite=1>");
+        
         if (disableMovement || player == null)
             return;
 

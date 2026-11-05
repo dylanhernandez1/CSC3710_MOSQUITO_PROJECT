@@ -23,6 +23,7 @@ public class BehaviorManager : MonoBehaviour
     [SerializeField] private int _state = 0;
     [SerializeField] private List<condEvent> _events = new();
     
+    public HumanManager humanManager;
 
     private NavMeshAgent _agent;
     private Animator _animator;
