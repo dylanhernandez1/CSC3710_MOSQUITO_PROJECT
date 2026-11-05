@@ -1,4 +1,4 @@
-
+using System;
 using UnityEngine;
 
 public class SlidingDoor : MonoBehaviour
@@ -8,6 +8,9 @@ public class SlidingDoor : MonoBehaviour
     //[SerializeField] private float slideSpeed = 2f;
     [SerializeField] private float timeToSlide = 1f;
     [SerializeField] private AnimationCurve slideInterpolationCurve;
+
+    public static event Action OnDoorOpen;
+
 
     private Vector3 closedPosition;
     private bool isOpen = false;
@@ -23,8 +26,9 @@ public class SlidingDoor : MonoBehaviour
         if (!isOpen) return;
 
         Vector3 target = closedPosition + Vector3.up * slideDistance;
-
+        OnDoorOpen?.Invoke();
         doorBody.localPosition = Vector3.Lerp(closedPosition, target, slideInterpolationCurve.Evaluate((Time.time - timeOfOpen) / timeToSlide));
+
     }
 
     public void Open()
