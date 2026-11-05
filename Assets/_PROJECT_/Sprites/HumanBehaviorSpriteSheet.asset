@@ -120,6 +120,11 @@ MonoBehaviour:
     m_GlyphIndex: 7
     m_Scale: 1.15
     m_Name: HumanBehaviorSpriteSheet_7
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 8
+    m_Scale: 1
+    m_Name: HumanBehaviorSpriteSheet_8
   m_GlyphTable:
   - m_Index: 0
     m_Metrics:
@@ -249,5 +254,21 @@ MonoBehaviour:
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 1856957542, guid: a7dc7b45dd9814d6780256531325993a, type: 3}
+  - m_Index: 8
+    m_Metrics:
+      m_Width: 160
+      m_Height: 160
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 143.7
+      m_HorizontalAdvance: 160
+    m_GlyphRect:
+      m_X: 480
+      m_Y: 480
+      m_Width: 160
+      m_Height: 160
+    m_Scale: 1
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 268524947, guid: a7dc7b45dd9814d6780256531325993a, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []

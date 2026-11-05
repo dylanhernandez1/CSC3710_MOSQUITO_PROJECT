@@ -20,7 +20,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] private List<TaskStation> _stations = new();
     [SerializeField] private float _standingDistance = 0f;
     private int _curStation = 0;
-    private float _remainingTaskTime = 10;
+    [SerializeField] private float _remainingTaskTime = 0;
 
 
     private NavMeshAgent _agent;
@@ -30,6 +30,8 @@ public class TaskManager : MonoBehaviour
 
     private bool _init = false;
     private int _behaveState = 0;
+    [SerializeField] private bool isDoingTask = false;
+
     //private bool _endingAnimation = false;
 
     void Awake()
@@ -59,6 +61,10 @@ public class TaskManager : MonoBehaviour
             Debug.LogError("Empty Task List");
         }
 
+        // Update the activity bubble
+        _manager.humanManager.uIManager.SetActionBubbleContent($"<sprite={(isDoingTask ? 8 : 2)}>");
+
+        
         if (_remainingTaskTime <= 0)
         {
             if (_stations.Count != 1)
@@ -84,9 +90,11 @@ public class TaskManager : MonoBehaviour
             {
                 _curStation++;
             }
-            _remainingTaskTime = _stations[_curStation].GetTaskTime();
             _agent.isStopped = false;
             _agent.updateRotation = true;
+            _remainingTaskTime = _stations[_curStation].GetTaskTime();
+
+            isDoingTask = false;
         }
 
         float distance = Vector3.Distance(transform.position, _stations[_curStation].GetLocation().position);
@@ -100,6 +108,9 @@ public class TaskManager : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (!other.CompareTag("TaskStation"))
+            return;
+
         if (other.gameObject == _stations[_curStation].gameObject && _manager.GetState() == _behaveState)
         {
             _remainingTaskTime -= Time.deltaTime;
@@ -114,10 +125,13 @@ public class TaskManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_debounce == true)
+        if (_debounce == true || !other.CompareTag("TaskStation"))
         {
             return;
         }
+        
+        Debug.Log("Started task " + other.gameObject.name);
+        isDoingTask = true;
 
         if (other.gameObject == _stations[_curStation].gameObject && _manager.GetState() == _behaveState)
         {

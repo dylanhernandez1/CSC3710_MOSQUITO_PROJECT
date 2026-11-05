@@ -112,7 +112,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33376ad3dfac04f7fb9bae82a5447292
+      spriteID: f58825a6290f945e1a8e3554d3679147
       internalID: 212510563
       vertices: []
       indices: 
@@ -134,7 +134,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c45644153e1642dd8b506bcb3e159dc
+      spriteID: 981f1073fdd2642baabda301b9152813
       internalID: 1642230564
       vertices: []
       indices: 
@@ -156,7 +156,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51e75a281cc5a4111a5f09ce394c935e
+      spriteID: e3a1c9bb3e8d54a44a4e6240f4d078d5
       internalID: -277998098
       vertices: []
       indices: 
@@ -178,7 +178,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2866dda175309440f96ae24f446fce38
+      spriteID: 2dc970dd43558440ab0b1c0554b1bc4d
       internalID: 1912760250
       vertices: []
       indices: 
@@ -200,7 +200,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ce44113c578746f993724fd3db9f277
+      spriteID: d99bb303b2a014dcd894106981a97e55
       internalID: -933467789
       vertices: []
       indices: 
@@ -222,7 +222,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9f53e77a2edd4d7595fc9caf5c939e8
+      spriteID: 2fdf83a4ec1c24633979a9232c4371c3
       internalID: -2146649088
       vertices: []
       indices: 
@@ -244,7 +244,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 310f4e82ca0cb41b9a73125127cbe797
+      spriteID: 1bd0a560ded2f4842bd757f7116e14a3
       internalID: -46358836
       vertices: []
       indices: 
@@ -266,8 +266,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76f51cc23a804412c9dd47fe23c69789
+      spriteID: 2c8f3d8c244cd450f8bfb2f208b7a98a
       internalID: 1856957542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HumanBehaviorSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 480
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f12a61ee402f849e3bc5e11cbadde6cf
+      internalID: 268524947
       vertices: []
       indices: 
       edges: []
@@ -298,6 +320,7 @@ TextureImporter:
       HumanBehaviorSpriteSheet_5: -2146649088
       HumanBehaviorSpriteSheet_6: -46358836
       HumanBehaviorSpriteSheet_7: 1856957542
+      HumanBehaviorSpriteSheet_8: 268524947
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1873,7 +1873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b38c30be8e238449f9792afc0be2e32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HumanUIManager
-  actionBubble: {fileID: 9184940749109901900}
+  actionBubbleCanvas: {fileID: 4601018407457339649}
   actionBubbleText: {fileID: 8313270449470069688}
   isActionBubbleShown: 1
   actionBubbleContent: ...
@@ -3487,7 +3487,7 @@ GameObject:
   - component: {fileID: 2811069048235853495}
   - component: {fileID: 46269356268563164}
   m_Layer: 7
-  m_Name: OverHeadCanvas
+  m_Name: ActionBubbleCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

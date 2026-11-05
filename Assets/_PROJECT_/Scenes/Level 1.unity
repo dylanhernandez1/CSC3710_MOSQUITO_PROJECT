@@ -12698,6 +12698,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Human(R2-Blocker)
       objectReference: {fileID: 0}
+    - target: {fileID: 4845352404640122108, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8020334549350114969, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
       propertyPath: player
       value: 
@@ -26979,6 +26983,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 138648926}
+    - target: {fileID: 8313270449470069688, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: m_text
+      value: <sprite=8>
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313270449470069688, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: m_fontSize
+      value: 4.65
+      objectReference: {fileID: 0}
     - target: {fileID: 8765888833222230507, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.4539804
