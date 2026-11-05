@@ -8,6 +8,8 @@ public class PlayerManager : MonoBehaviour
     private string _cond = "angry";
     public string CurrentCondition => _cond;
 
+    [SerializeField] GameObject bloodPreFab;
+
     public event Action<string> OnConditionChanged;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +27,10 @@ public class PlayerManager : MonoBehaviour
         if (collision.gameObject.CompareTag("Human"))
         {
             collision.gameObject.GetComponent<BehaviorManager>().SetState(_cond);
+            if (bloodPreFab != null)
+            {
+                Instantiate(bloodPreFab, GetComponent<Rigidbody>().transform);
+            }
             return;
         }
 
