@@ -67,7 +67,7 @@ public class HandAttack : MonoBehaviour
             // OLD: _animator.SetTrigger("Attack");
 
             Debug.Log("Running Slap");
-            StartCoroutine(HandSlap(player.position));
+            StartCoroutine(HandSlap(new Vector3(player.position.x, player.position.y - 1, player.position.z)));
         }
     }
 
