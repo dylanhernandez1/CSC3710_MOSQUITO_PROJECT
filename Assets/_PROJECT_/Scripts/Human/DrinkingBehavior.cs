@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class DrinkingBehavior : MonoBehaviour
 {
+    private BehaviorManager _manager;
+
     [SerializeField] private float drinkTime = 10f;
     [SerializeField] private GameObject bottle;
     [SerializeField] private string trigger = "StartDrinking";
@@ -13,12 +15,15 @@ public class DrinkingBehavior : MonoBehaviour
     private void Awake()
     {
         curTime = drinkTime;
+        _manager = GetComponent<BehaviorManager>();
         _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     public void Drink()
     {
+        _manager.humanManager.uIManager.SetActionBubbleContent("<sprite=7>");
+
         if (debounce == false)
         {
             debounce = true;
