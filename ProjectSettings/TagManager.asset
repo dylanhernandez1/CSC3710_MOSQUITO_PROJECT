@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HumanHand
   - Human
+  - End
   layers:
   - Default
   - TransparentFX
