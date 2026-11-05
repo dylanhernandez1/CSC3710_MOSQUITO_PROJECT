@@ -38,22 +38,12 @@ public class PlayerManager : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        EndLevel endLevel =
-            other.GetComponentInParent<EndLevel>();
-
-        if (endLevel == null)
+        if (other.TryGetComponent<EndLevelTrigger>(out var trigger))
         {
-            return;
+            Debug.Log("Hit End level Trigger: " + other.gameObject.name);
+
+            GameManager.Instance.SwitchScenes(trigger.GetNextSceneName());
         }
-
-        Debug.Log("Hit End: " + other.gameObject.name);
-
-        Debug.Log(
-            "Loading next scene: " +
-            endLevel.GetNextSceneName()
-        );
-
-        SceneManager.LoadScene(endLevel.GetNextSceneName());
     }
 
     public void SetCondition(string newCondition)

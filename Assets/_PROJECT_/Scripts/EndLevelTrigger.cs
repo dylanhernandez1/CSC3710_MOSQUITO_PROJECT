@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EndLevel : MonoBehaviour
+public class EndLevelTrigger : MonoBehaviour
 {
     // Fields
 
