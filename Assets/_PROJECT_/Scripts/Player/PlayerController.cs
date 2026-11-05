@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
 
     // Monobehaviour Methods (Awake, Start, Update, ...)
 
+   
     private void Awake()
     {
         _rigidbody.useGravity = false;
