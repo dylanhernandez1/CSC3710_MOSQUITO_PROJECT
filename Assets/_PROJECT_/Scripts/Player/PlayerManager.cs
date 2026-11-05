@@ -1,10 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerManager : MonoBehaviour
 {
     // Conditional from absorbed liquid puddles
     private string _cond = "angry";
+    public string CurrentCondition => _cond;
+
+    public event Action<string> OnConditionChanged;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,7 +31,7 @@ public class PlayerManager : MonoBehaviour
         Puddle puddle = collision.gameObject.GetComponent<Puddle>();
         if (puddle != null)
         {
-            _cond = puddle.GetCondition();
+            SetCondition(puddle.GetCondition());
         }
         Debug.Log("Hit " + collision.gameObject.name);
     }
@@ -50,5 +54,19 @@ public class PlayerManager : MonoBehaviour
         );
 
         SceneManager.LoadScene(endLevel.GetNextSceneName());
+    }
+
+    public void SetCondition(string newCondition)
+    {
+        if (_cond == newCondition)
+        {
+            return;
+        }
+
+        _cond = newCondition;
+
+        Debug.Log("Mosquito condition: " + _cond);
+
+        OnConditionChanged?.Invoke(_cond);
     }
 }
