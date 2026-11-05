@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,6 +15,14 @@ public class SmackButton : MonoBehaviour
         {
             pressed = true;
             onButtonClicked.Invoke();
+        }
+    }
+    //when human hand lifted up -> button pressable again
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("HumanHand"))
+        {
+            pressed = false;
         }
     }
 }
