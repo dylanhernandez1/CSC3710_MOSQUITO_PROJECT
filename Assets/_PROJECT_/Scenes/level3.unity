@@ -310,7 +310,7 @@ PrefabInstance:
     - target: {fileID: 8840329032981977038, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
       propertyPath: '_stations.Array.data[2]'
       value: 
-      objectReference: {fileID: 825245042}
+      objectReference: {fileID: 910382818}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2942,7 +2942,7 @@ GameObject:
   - component: {fileID: 825245042}
   m_Layer: 0
   m_Name: task-station2
-  m_TagString: Untagged
+  m_TagString: TaskStation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3191,7 +3191,7 @@ GameObject:
   - component: {fileID: 910382818}
   m_Layer: 0
   m_Name: task-station3
-  m_TagString: Untagged
+  m_TagString: TaskStation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3208,7 +3208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be907cbe8303d04facc0274e3b5294d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskStation
-  _startTrigger: 
+  _startTrigger: Walk
   _endTrigger: 
   _taskTime: 3
   _location: {fileID: 1720350034}
@@ -3786,7 +3786,7 @@ GameObject:
   - component: {fileID: 1126241342}
   m_Layer: 0
   m_Name: task-station1
-  m_TagString: Untagged
+  m_TagString: TaskStation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3826,8 +3826,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 4, z: 4}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4, y: 15, z: 4}
+  m_Center: {x: 0, y: 5.5, z: 0}
 --- !u!4 &1126241344
 Transform:
   m_ObjectHideFlags: 0
