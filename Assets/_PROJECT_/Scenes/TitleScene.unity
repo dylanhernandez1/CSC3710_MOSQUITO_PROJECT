@@ -5777,11 +5777,12 @@ MonoBehaviour:
     - Vertical Movement:
     \tShift/Space
 
+    - Dash: \t\t\tLeft Alt
 
     <b>Injection</b>
 
-    - Pick up injection \t\tTouch fluid
-    splat
+    - Pick up
+    injection \t\tTouch fluid splat
 
     - Inject\t\t\tBump into player '
   m_isRightToLeft: 0
