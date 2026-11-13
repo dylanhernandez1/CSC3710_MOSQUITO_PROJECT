@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Runtime.ExceptionServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform _cameraPivot;
     [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private ParticleSystem _dashParts;
 
     [Header("Movement")]
     [SerializeField] private float _moveSpeed = 8f;
@@ -23,11 +27,21 @@ public class PlayerController : MonoBehaviour
     private InputAction _look;
     private InputAction _flyUp;
     private InputAction _flyDown;
+    private InputAction _dash;
 
     private Vector2 _moveInput;
     private float _verticalInput;
     private float _yaw;
     private float _pitch;
+
+    [Header("Dash")]
+    [SerializeField] private float dashDuration = .3f;
+    [SerializeField] private float dashSpeed = 20;
+    [SerializeField] private AnimationCurve dashVelocityEasing;
+    public uint numDashes = 3;
+
+    [Header("State")]
+    public bool isDashing = false;
 
     // Properties
 
@@ -43,6 +57,7 @@ public class PlayerController : MonoBehaviour
         _look = InputSystem.actions.FindAction("Look");
         _flyUp = InputSystem.actions.FindAction("FlyUp");
         _flyDown = InputSystem.actions.FindAction("FlyDown");
+        _dash = InputSystem.actions.FindAction("Dash");
 
         _yaw = transform.eulerAngles.y;
 
@@ -87,6 +102,10 @@ public class PlayerController : MonoBehaviour
         _verticalInput =
             (_flyUp.IsPressed() ? 1f : 0f) -
             (_flyDown.IsPressed() ? 1f : 0f);
+
+        // Handle dash input
+        if (_dash.WasPressedThisFrame())
+            InitDash();
     }
 
     private void HandleLook()
@@ -141,6 +160,10 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        // Disable movement when dashing
+        if (isDashing)
+            return;
+
         Vector3 cameraForward = _cameraPivot.forward;
         cameraForward.y = 0f;
         cameraForward.Normalize();
@@ -180,6 +203,54 @@ public class PlayerController : MonoBehaviour
             Quaternion.LookRotation(movementDirection, Vector3.up);
 
         _rigidbody.MoveRotation(targetRotation);
+    }
+
+    private void InitDash()
+    {
+        // Calculate dash vector
+        Vector3 cameraForward = _cameraPivot.forward;
+        cameraForward.y = 0f;
+        cameraForward.Normalize();
+
+        Vector3 cameraRight = _cameraPivot.right;
+        cameraRight.y = 0f;
+        cameraRight.Normalize();
+
+        Vector3 dashVector =
+            cameraForward * _moveInput.y +
+            cameraRight * _moveInput.x;
+
+        isDashing = true; // Disable movement
+
+        // Stop and restart the dash particles with the current duration
+        _dashParts.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+        var main = _dashParts.main;
+        main.duration = dashDuration;
+        
+        _dashParts.Play();
+
+        StartCoroutine(Dash(dashVector));
+    }
+
+    private IEnumerator Dash(Vector3 direction)
+    {
+        float timeElapsed = 0.001f;
+
+        // Basic timed loop
+        while (timeElapsed < dashDuration)
+        {   
+            _rigidbody.linearVelocity = 
+                  direction 
+                * dashSpeed 
+                * dashVelocityEasing.Evaluate(timeElapsed / dashDuration); // Curve for tuning the velocity over time
+
+            // Update the elapsed time tracker by the time between frames
+            yield return null;
+            timeElapsed += Time.deltaTime;
+        }
+
+        isDashing = false; // Effectively reenable movement
     }
 }
 
