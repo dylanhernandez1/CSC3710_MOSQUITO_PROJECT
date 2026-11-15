@@ -642,7 +642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fce949294a404cf419d6db3ac10c722a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
-  bloodPreFab: {fileID: 0}
+  _bloodPreFab: {fileID: 3497674227057355505, guid: 7c677db5cedb1014ab72380ec886a970, type: 3}
+  _absorbPrompt: {fileID: 6988984739352977403, guid: 2ed2213b1b980dc42adbac764627cfbd, type: 3}
 --- !u!82 &-7205603177102129630
 AudioSource:
   m_ObjectHideFlags: 0
