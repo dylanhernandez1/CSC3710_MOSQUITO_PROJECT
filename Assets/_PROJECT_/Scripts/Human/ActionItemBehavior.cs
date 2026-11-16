@@ -62,6 +62,9 @@ public class ActionItemBehavior : MonoBehaviour
                 Debug.Log($"[{name}] Interacting with station [{station.name}]");
                 station.Interact();
 
+                // Remove binding
+                ActionItemBindingManager.Instance.RemoveBindingForHuman(_manager.humanManager);
+
                 // TODO: add some animations, dont just go back to standing there
                 _manager.SetState("default");
             }

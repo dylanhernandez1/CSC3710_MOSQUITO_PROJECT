@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using JetBrains.Annotations;
 
 public class ActionItemBindingManager : MonoBehaviour
 {
@@ -132,6 +133,19 @@ public class ActionItemBindingManager : MonoBehaviour
 
         man = null;
         return false;
+    }
+
+    public void RemoveBindingForHuman(HumanManager human)
+    {
+        foreach (string key in new List<string>(actionItemBindings.Keys))
+        {
+            var binding = actionItemBindings[key];
+
+            if (binding.human == human)
+            {
+                actionItemBindings.Remove(key);
+            }
+        }
     }
 
     public void DebugAll()
