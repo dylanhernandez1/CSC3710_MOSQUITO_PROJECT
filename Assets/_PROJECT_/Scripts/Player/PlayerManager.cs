@@ -6,16 +6,30 @@ using NUnit.Framework;
 
 public class PlayerManager : MonoBehaviour
 {
+    public static PlayerManager Instance;
+
     // Conditional from absorbed liquid puddles
     [SerializeField] private string _cond = "angry";
     private bool _isBindable = false;
 
     public string CurrentCondition => _cond;
+    public string currentEffectActionBubble = "";
+    public Color currentPheromoneColor;
 
     [SerializeField] GameObject bloodPreFab;
 
     public event Action<string> OnConditionChanged;
 
+    void Awake()
+    {
+        // Singleton setup
+        if (Instance)
+            DestroyImmediate(this);
+        else
+        {
+            Instance = this;
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,7 +49,7 @@ public class PlayerManager : MonoBehaviour
             if (_isBindable)
             {
                 // Then we are dropping a pheromone on them
-                ActionItemBindingManager.Instance.SetBindingHuman(collision.gameObject.GetComponent<HumanManager>(), _cond);
+                ActionItemBindingManager.Instance.SetBindingHuman(collision.gameObject.GetComponent<HumanManager>(), _cond, currentEffectActionBubble);
             }
             else
             {
@@ -60,7 +74,8 @@ public class PlayerManager : MonoBehaviour
             }
 
             ActionItem actionItem = collision.gameObject.GetComponent<ActionItem>();
-
+            actionItem.bindingColor = currentPheromoneColor;
+            
             //SetCondition(actionItem.currentEffect);
             ActionItemBindingManager.Instance.SetBindingActionItem(actionItem, _cond);
         }
@@ -70,6 +85,9 @@ public class PlayerManager : MonoBehaviour
             SetCondition(puddle.GetCondition());
 
             _isBindable = puddle.isPheromone;
+
+            currentEffectActionBubble = puddle.currentEffectActionBubbleText;
+            currentPheromoneColor = puddle.pheromoneColor;
         }
     }
 

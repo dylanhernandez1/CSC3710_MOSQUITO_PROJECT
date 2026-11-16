@@ -125,6 +125,26 @@ MonoBehaviour:
     m_GlyphIndex: 8
     m_Scale: 1
     m_Name: HumanBehaviorSpriteSheet_8
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 9
+    m_Scale: 1
+    m_Name: HumanBehaviorSpriteSheet_9
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 10
+    m_Scale: 1
+    m_Name: HumanBehaviorSpriteSheet_10
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 11
+    m_Scale: 1
+    m_Name: HumanBehaviorSpriteSheet_11
+  - m_ElementType: 2
+    m_Unicode: 65534
+    m_GlyphIndex: 12
+    m_Scale: 1
+    m_Name: HumanBehaviorSpriteSheet_12
   m_GlyphTable:
   - m_Index: 0
     m_Metrics:
@@ -270,5 +290,69 @@ MonoBehaviour:
     m_AtlasIndex: 0
     m_ClassDefinitionType: 0
     sprite: {fileID: 268524947, guid: a7dc7b45dd9814d6780256531325993a, type: 3}
+  - m_Index: 9
+    m_Metrics:
+      m_Width: 121.6
+      m_Height: 100
+      m_HorizontalBearingX: 17
+      m_HorizontalBearingY: 90.1
+      m_HorizontalAdvance: 160
+    m_GlyphRect:
+      m_X: 640
+      m_Y: 480
+      m_Width: 160
+      m_Height: 160
+    m_Scale: 1.28
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -386375403, guid: a7dc7b45dd9814d6780256531325993a, type: 3}
+  - m_Index: 10
+    m_Metrics:
+      m_Width: 142.7
+      m_Height: 118.5
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 97.1
+      m_HorizontalAdvance: 160
+    m_GlyphRect:
+      m_X: 0
+      m_Y: 320
+      m_Width: 160
+      m_Height: 160
+    m_Scale: 1.14
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: -432688135, guid: a7dc7b45dd9814d6780256531325993a, type: 3}
+  - m_Index: 11
+    m_Metrics:
+      m_Width: 160
+      m_Height: 160
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 109.1
+      m_HorizontalAdvance: 160
+    m_GlyphRect:
+      m_X: 160
+      m_Y: 320
+      m_Width: 160
+      m_Height: 160
+    m_Scale: 1.48
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 2090970073, guid: a7dc7b45dd9814d6780256531325993a, type: 3}
+  - m_Index: 12
+    m_Metrics:
+      m_Width: 160
+      m_Height: 160
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 109.1
+      m_HorizontalAdvance: 160
+    m_GlyphRect:
+      m_X: 320
+      m_Y: 320
+      m_Width: 160
+      m_Height: 160
+    m_Scale: 1.48
+    m_AtlasIndex: 0
+    m_ClassDefinitionType: 0
+    sprite: {fileID: 111921236, guid: a7dc7b45dd9814d6780256531325993a, type: 3}
   spriteInfoList: []
   fallbackSpriteAssets: []

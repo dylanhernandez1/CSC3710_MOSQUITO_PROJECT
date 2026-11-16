@@ -112,7 +112,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f58825a6290f945e1a8e3554d3679147
+      spriteID: 4f9973cb38cea427ab05678bb690f084
       internalID: 212510563
       vertices: []
       indices: 
@@ -134,7 +134,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 981f1073fdd2642baabda301b9152813
+      spriteID: 0671a1bfc84984ed38173e4b64e904db
       internalID: 1642230564
       vertices: []
       indices: 
@@ -156,7 +156,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3a1c9bb3e8d54a44a4e6240f4d078d5
+      spriteID: 06512e791e00640f6a50f02ee16573e1
       internalID: -277998098
       vertices: []
       indices: 
@@ -178,7 +178,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dc970dd43558440ab0b1c0554b1bc4d
+      spriteID: 2febbc69cf43a47c8b9e7f476d5f8e74
       internalID: 1912760250
       vertices: []
       indices: 
@@ -200,7 +200,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d99bb303b2a014dcd894106981a97e55
+      spriteID: 2853795ae43ed430eb12253e0df4f9c5
       internalID: -933467789
       vertices: []
       indices: 
@@ -222,7 +222,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fdf83a4ec1c24633979a9232c4371c3
+      spriteID: 35616e76cabf443959fbe98fd81305f7
       internalID: -2146649088
       vertices: []
       indices: 
@@ -244,7 +244,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1bd0a560ded2f4842bd757f7116e14a3
+      spriteID: 9696cee205245420996d03a0c0de6beb
       internalID: -46358836
       vertices: []
       indices: 
@@ -266,7 +266,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c8f3d8c244cd450f8bfb2f208b7a98a
+      spriteID: 1dd2196ac2c044f8ebcf7d2a8e626ac4
       internalID: 1856957542
       vertices: []
       indices: 
@@ -288,8 +288,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f12a61ee402f849e3bc5e11cbadde6cf
+      spriteID: 2ee879fd28948430fa8b5820dfbc5fbe
       internalID: 268524947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HumanBehaviorSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 480
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ab93dfbe9bcb431e8fefd6089a30dfe
+      internalID: -386375403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HumanBehaviorSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 006d8fb803ce64dc38aaa959e2d6dd5b
+      internalID: -432688135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HumanBehaviorSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 320
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f47332b210593460191d275a6d2d40e2
+      internalID: 2090970073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HumanBehaviorSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 160
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71118da8b7b9440685bf96549f244c9
+      internalID: 111921236
       vertices: []
       indices: 
       edges: []
@@ -314,6 +402,9 @@ TextureImporter:
     nameFileIdTable:
       HumanBehaviorSpriteSheet_0: 212510563
       HumanBehaviorSpriteSheet_1: 1642230564
+      HumanBehaviorSpriteSheet_10: -432688135
+      HumanBehaviorSpriteSheet_11: 2090970073
+      HumanBehaviorSpriteSheet_12: 111921236
       HumanBehaviorSpriteSheet_2: -277998098
       HumanBehaviorSpriteSheet_3: 1912760250
       HumanBehaviorSpriteSheet_4: -933467789
@@ -321,6 +412,7 @@ TextureImporter:
       HumanBehaviorSpriteSheet_6: -46358836
       HumanBehaviorSpriteSheet_7: 1856957542
       HumanBehaviorSpriteSheet_8: 268524947
+      HumanBehaviorSpriteSheet_9: -386375403
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

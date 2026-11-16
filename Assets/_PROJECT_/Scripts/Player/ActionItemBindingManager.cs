@@ -55,7 +55,7 @@ public class ActionItemBindingManager : MonoBehaviour
         // TODO: If currentBinding.human exists, tell it to pathfind to item here.
         DebugAll();
     }
-    public void SetBindingHuman(HumanManager human, string effect)
+    public void SetBindingHuman(HumanManager human, string effect, string actionBubbleText = "?")
     {
         // A human can only follow one pheromone effect at a time.
         foreach (string key in new List<string>(actionItemBindings.Keys))
@@ -84,6 +84,8 @@ public class ActionItemBindingManager : MonoBehaviour
 
         // TODO: If currentBinding.item exists, tell human to pathfind to it here.
         DebugAll();
+        human.actionItemBehavior.currentActionBubbleText = actionBubbleText;
+        human.behaviorManager.SetState("actionItem");
     }
 
     public (ActionItem, HumanManager) GetBinding(string pheromoneEffect)
@@ -98,20 +100,20 @@ public class ActionItemBindingManager : MonoBehaviour
 
     public bool ContainsEffect(string effect) => actionItemBindings.ContainsKey(effect);
 
-    public bool TryGetItem(ActionItem item, out HumanManager man)
+    public bool TryGetItem(HumanManager man, out ActionItem item)
     {
         foreach (string key in new List<string>(actionItemBindings.Keys))
         {
             var binding = actionItemBindings[key];
 
-            if (binding.item == item)
+            if (binding.human == man && binding.item != null)
             {
-                man = binding.human;
+                item = binding.item;
                 return true;
             }
         }
 
-        man = null;
+        item = null;
         return false;
     }
 
