@@ -30,6 +30,7 @@ public class PlayerManager : MonoBehaviour
 
     public event Action<string> OnConditionChanged;
 
+    public void Awake()
     {
         // Singleton setup
         if (Instance)
@@ -63,9 +64,9 @@ public class PlayerManager : MonoBehaviour
                 Debug.Log("Hit human with " + _cond + " effect");
                 // Then its just an effect
                 collision.gameObject.GetComponent<BehaviorManager>().SetState(_cond);
-                if (bloodPreFab != null)
+                if (_bloodPreFab != null)
                 {
-                    Instantiate(bloodPreFab, GetComponent<Rigidbody>().transform);
+                    Instantiate(_bloodPreFab, GetComponent<Rigidbody>().transform);
                 }
                 return;
             }
