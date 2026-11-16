@@ -7,7 +7,7 @@ using NUnit.Framework;
 public class PlayerManager : MonoBehaviour
 {
     // Conditional from absorbed liquid puddles
-    private string _cond = "angry";
+    [SerializeField] private string _cond = "angry";
     private bool _isBindable = false;
 
     public string CurrentCondition => _cond;
@@ -39,6 +39,7 @@ public class PlayerManager : MonoBehaviour
             }
             else
             {
+                Debug.Log("Hit human with " + _cond + " effect");
                 // Then its just an effect
                 collision.gameObject.GetComponent<BehaviorManager>().SetState(_cond);
                 if (bloodPreFab != null)
@@ -51,6 +52,7 @@ public class PlayerManager : MonoBehaviour
         // New action item
         else if (collision.gameObject.CompareTag("ActionItem"))
         {
+            Debug.Log("Hir action item");
             if (!_isBindable)
             {
                 Debug.Log("Not carrying a bindable pheromone condition, cannot infuse item");
@@ -60,9 +62,7 @@ public class PlayerManager : MonoBehaviour
             ActionItem actionItem = collision.gameObject.GetComponent<ActionItem>();
 
             //SetCondition(actionItem.currentEffect);
-
-            if (actionItem.isBindable)
-                ActionItemBindingManager.Instance.SetBindingActionItem(actionItem, _cond);
+            ActionItemBindingManager.Instance.SetBindingActionItem(actionItem, _cond);
         }
         // Old puddle logic
         else if (collision.gameObject.TryGetComponent<Puddle>(out var puddle))

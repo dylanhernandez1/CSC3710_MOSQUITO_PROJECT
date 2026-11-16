@@ -96,6 +96,42 @@ public class ActionItemBindingManager : MonoBehaviour
             return (null, null);
     }
 
+    public bool ContainsEffect(string effect) => actionItemBindings.ContainsKey(effect);
+
+    public bool TryGetItem(ActionItem item, out HumanManager man)
+    {
+        foreach (string key in new List<string>(actionItemBindings.Keys))
+        {
+            var binding = actionItemBindings[key];
+
+            if (binding.item == item)
+            {
+                man = binding.human;
+                return true;
+            }
+        }
+
+        man = null;
+        return false;
+    }
+
+    public bool TryGetHuman(ActionItem item, out HumanManager man)
+    {
+        foreach (string key in new List<string>(actionItemBindings.Keys))
+        {
+            var binding = actionItemBindings[key];
+
+            if (binding.item == item && binding.human != null)
+            {
+                man = binding.human;
+                return true;
+            }
+        }
+
+        man = null;
+        return false;
+    }
+
     public void DebugAll()
     {
         foreach(var item in actionItemBindings)
