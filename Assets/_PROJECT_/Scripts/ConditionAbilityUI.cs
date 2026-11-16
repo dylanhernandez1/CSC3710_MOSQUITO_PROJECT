@@ -55,20 +55,27 @@ public class ConditionAbilityUI : MonoBehaviour
 
         _abilityImage.sprite = _emptyAbilitySprite;
 
-        if (normalizedCondition == "spicy")
+        switch (normalizedCondition)
         {
-            _abilityImage.sprite = _spicyAbilitySprite;
-            _abilityText.text = "Spicy";
-        }
-        else if (normalizedCondition == "sleep")
-        {
-            _abilityImage.sprite = _sleepAbilitySprite;
-            _abilityText.text = "Sleep";
-        }
-        else if (normalizedCondition == "angry")
-        {
-            _abilityImage.sprite = _emptyAbilitySprite;
-            _abilityText.text = "Default";
+            case "spicy":
+                _abilityImage.sprite = _spicyAbilitySprite;
+                _abilityText.text = "Spicy";
+            break;
+
+            case "sleep":
+                _abilityImage.sprite = _sleepAbilitySprite;
+                _abilityText.text = "Sleep";
+            break;
+
+            case "angry":
+                _abilityImage.sprite = _emptyAbilitySprite;
+                _abilityText.text = "angry";
+            break;
+
+            default:
+                _abilityImage.sprite = _emptyAbilitySprite;
+                _abilityText.text = "angry";
+            break;
         }
 
         _abilityImage.preserveAspect = true;
