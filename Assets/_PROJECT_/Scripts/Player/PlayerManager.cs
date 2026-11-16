@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections.Generic;
+using NUnit.Framework;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -15,8 +16,6 @@ public class PlayerManager : MonoBehaviour
 
     public event Action<string> OnConditionChanged;
 
-    // FOR BINDING ITEMS TO HUMANS
-    Dictionary<string, (ActionItem item, HumanManager human)> actionItemBindings= new();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,28 +32,44 @@ public class PlayerManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Human"))
         {
-            collision.gameObject.GetComponent<BehaviorManager>().SetState(_cond);
-            if (bloodPreFab != null)
+            if (_isBindable)
             {
-                Instantiate(bloodPreFab, GetComponent<Rigidbody>().transform);
+                // Then we are dropping a pheromone on them
+                ActionItemBindingManager.Instance.SetBindingHuman(collision.gameObject.GetComponent<HumanManager>(), _cond);
             }
-            return;
+            else
+            {
+                // Then its just an effect
+                collision.gameObject.GetComponent<BehaviorManager>().SetState(_cond);
+                if (bloodPreFab != null)
+                {
+                    Instantiate(bloodPreFab, GetComponent<Rigidbody>().transform);
+                }
+                return;
+            }
         }
         // New action item
         else if (collision.gameObject.CompareTag("ActionItem"))
         {
+            if (!_isBindable)
+            {
+                Debug.Log("Not carrying a bindable pheromone condition, cannot infuse item");
+                return;
+            }
+
             ActionItem actionItem = collision.gameObject.GetComponent<ActionItem>();
 
             //SetCondition(actionItem.currentEffect);
-            _isBindable = actionItem.isBindable;
 
             if (actionItem.isBindable)
-                SetBindingActionItem(actionItem);
+                ActionItemBindingManager.Instance.SetBindingActionItem(actionItem, _cond);
         }
         // Old puddle logic
         else if (collision.gameObject.TryGetComponent<Puddle>(out var puddle))
         {
             SetCondition(puddle.GetCondition());
+
+            _isBindable = puddle.isPheromone;
         }
     }
 
@@ -78,54 +93,5 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("Mosquito condition: " + _cond);
 
         OnConditionChanged?.Invoke(_cond);
-    }
-
-    public void SetBindingActionItem(ActionItem item)
-    {
-        string effect = item.currentEffect;
-
-        if (actionItemBindings.ContainsKey(effect))
-        {
-            if (actionItemBindings[effect].item)
-            {
-                /// If theres already an item
-                
-                /// Swap items in the binding
-                // Remove the binding from the old item
-                actionItemBindings[effect].item.currentEffect = null;
-
-                // Change binding to new item
-                actionItemBindings[effect] = (item, actionItemBindings[effect].human);
-
-                /// Swap out the item that the human is looking for
-            }
-            
-
-            actionItemBindings[effect].human?.behaviorManager.SetState("default");
-
-            // Remove binding from the list
-            actionItemBindings.Remove(effect);
-        }
-
-        // Add the binding
-        actionItemBindings.Add(effect, (item, null));
-    }
-
-    public void SetBindingHuman(HumanManager human, string effect)
-    {
-        if (actionItemBindings.ContainsKey(effect))
-        {
-            // Remove the binding from the human
-            if (actionItemBindings[effect].human)
-                actionItemBindings[effect].human.behaviorManager.SetState("default");
-
-            // Swap out the human for this human
-            actionItemBindings[effect] = (actionItemBindings[effect].item, human);
-        }
-        else
-        {
-            // Add the new binding for this human
-            actionItemBindings.Add(effect, (null, human));
-        }
     }
 }

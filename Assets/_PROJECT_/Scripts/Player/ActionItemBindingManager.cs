@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
+using System.Linq;
 
 public class ActionItemBindingManager : MonoBehaviour
 {
     public static ActionItemBindingManager Instance;
 
     // Pheromone -> human - item binding
-    Dictionary<string, (ActionItem item, HumanManager human)> actionItemBindings= new();
+    private Dictionary<string, (ActionItem item, HumanManager human)> actionItemBindings = new();
 
     public void Awake()
     {
@@ -22,35 +24,37 @@ public class ActionItemBindingManager : MonoBehaviour
 
     public void SetBindingActionItem(ActionItem item, string effect)
     {
-        // Check for existing binding
-        if (actionItemBindings.ContainsKey(effect))
+        // Remove this item from any old effect binding.
+        foreach (string key in new List<string>(actionItemBindings.Keys))
         {
-            if (actionItemBindings[effect].item)
+            if (key == effect)
+                continue;
+
+            var binding = actionItemBindings[key];
+
+            if (binding.item == item)
             {
-                /// If theres already an item
-                
-                /// Swap items in the binding
-                // Remove the binding from the old item
-                actionItemBindings[effect].item.currentEffect = null;
-
-                // Change binding to new item
-                actionItemBindings[effect] = (item, actionItemBindings[effect].human);
-
-                // Set new items effect
-                item.currentEffect = effect;
-
-                /// TODO Swap out the item that the human is looking for
+                binding.item = null;
+                actionItemBindings[key] = binding;
             }
-            else
-                actionItemBindings[effect] = (item, actionItemBindings[effect].human);
         }
-        else
-        {
-            // Add the binding
-            actionItemBindings.Add(effect, (item, null));
-        }
-    }
 
+        // Get or create this effect's binding.
+        if (!actionItemBindings.TryGetValue(effect, out var currentBinding))
+            currentBinding = (null, null);
+
+        // Clear the old item's record if it is being replaced.
+        if (currentBinding.item != null && currentBinding.item != item)
+            currentBinding.item.currentEffect = null;
+
+        currentBinding.item = item;
+        actionItemBindings[effect] = currentBinding;
+
+        item.currentEffect = effect;
+
+        // TODO: If currentBinding.human exists, tell it to pathfind to item here.
+        DebugAll();
+    }
     public void SetBindingHuman(HumanManager human, string effect)
     {
         // A human can only follow one pheromone effect at a time.
@@ -79,6 +83,7 @@ public class ActionItemBindingManager : MonoBehaviour
         actionItemBindings[effect] = currentBinding;
 
         // TODO: If currentBinding.item exists, tell human to pathfind to it here.
+        DebugAll();
     }
 
     public (ActionItem, HumanManager) GetBinding(string pheromoneEffect)
@@ -89,5 +94,13 @@ public class ActionItemBindingManager : MonoBehaviour
         }
         else
             return (null, null);
+    }
+
+    public void DebugAll()
+    {
+        foreach(var item in actionItemBindings)
+        {
+            Debug.Log(item);
+        }
     }
 }

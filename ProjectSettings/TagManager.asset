@@ -8,6 +8,7 @@ TagManager:
   - Human
   - End
   - TaskStation
+  - ActionItem
   layers:
   - Default
   - TransparentFX
