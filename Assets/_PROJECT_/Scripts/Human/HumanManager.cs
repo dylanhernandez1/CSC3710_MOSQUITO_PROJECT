@@ -8,6 +8,8 @@ public class HumanManager : MonoBehaviour
     
     public HumanUIManager uIManager;
 
+    public ActionItemBehavior actionItemBehavior;
+    
     [SerializeField] private GameObject _level4splat;
 
     void OnCollisionEnter(Collision collision)

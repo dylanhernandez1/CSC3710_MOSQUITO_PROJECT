@@ -9,7 +9,7 @@ using UnityEditor.PackageManager;
 [Serializable]
 public struct condEvent
 {
-    public string condition;
+    public string stateName;
     public UnityEvent behavior;
 }
 
@@ -27,6 +27,7 @@ public class BehaviorManager : MonoBehaviour
 
     private NavMeshAgent _agent;
     private Animator _animator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -62,9 +63,9 @@ public class BehaviorManager : MonoBehaviour
         }
     }
 
-    public void SetState(string cond)
+    public void SetState(string stateName)
     {
-        if ((cond == "default" || cond == "") && _events.Count != 0)
+        if ((stateName == "default" || stateName == "") && _events.Count != 0)
         {
             _state = 0;
             return;
@@ -74,7 +75,7 @@ public class BehaviorManager : MonoBehaviour
         {
             condEvent _event = _events[i];
 
-            if (_event.condition == cond)
+            if (_event.stateName == stateName)
             {
                 _state = i;
                 _animator.SetTrigger("Walk");
