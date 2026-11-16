@@ -54,8 +54,6 @@ public class ActionItemBehavior : MonoBehaviour
         if (disableMovement || player == null)
             return;
 
-        Debug.Log("made it into action");
-
         if (station != null)
         {
             if (Vector3.Distance(transform.position, station.transform.position) < distanceToInteractWithStation)
