@@ -1,26 +1,35 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using System;
 using System.Collections.Generic;
 using NUnit.Framework;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerManager : MonoBehaviour
 {
     public static PlayerManager Instance;
+    // Fields
+
+    [Header("References")]
+    [SerializeField] private GameObject _bloodPreFab;
+    [SerializeField] private GameObject _absorbPrompt;
+
 
     // Conditional from absorbed liquid puddles
     [SerializeField] private string _cond = "angry";
     private bool _isBindable = false;
 
+    private InputAction _interact;
+    private Puddle _nearbyPuddle;
+
+
     public string CurrentCondition => _cond;
     public string currentEffectActionBubble = "";
     public Color currentPheromoneColor;
 
-    [SerializeField] GameObject bloodPreFab;
+    // Events / Delegates
 
     public event Action<string> OnConditionChanged;
 
-    void Awake()
     {
         // Singleton setup
         if (Instance)
@@ -29,20 +38,18 @@ public class PlayerManager : MonoBehaviour
         {
             Instance = this;
         }
+        
+        _interact = InputSystem.actions.FindAction("Interact");
+
+        SetAbsorbPromptVisible(false);
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Update()
     {
-
+        TryAbsorbPuddle();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Human"))
         {
@@ -88,6 +95,23 @@ public class PlayerManager : MonoBehaviour
 
             currentEffectActionBubble = puddle.currentEffectActionBubbleText;
             currentPheromoneColor = puddle.pheromoneColor;
+            
+            // Frankensteining on the prompt stuff - TH
+            _nearbyPuddle = puddle;
+            SetAbsorbPromptVisible(true);
+        }
+    }
+    
+    private void OnCollisionExit(Collision collision)
+    {
+        Puddle puddle =
+            collision.gameObject.GetComponentInParent<Puddle>();
+
+        if (puddle == _nearbyPuddle)
+        {
+            _nearbyPuddle = null;
+
+            SetAbsorbPromptVisible(false);
         }
     }
 
@@ -95,11 +119,18 @@ public class PlayerManager : MonoBehaviour
     {
         if (other.TryGetComponent<EndLevelTrigger>(out var trigger))
         {
-            Debug.Log("Hit End level Trigger: " + other.gameObject.name);
+            Debug.Log(
+                "Hit End level Trigger: " +
+                other.gameObject.name
+            );
 
-            GameManager.Instance.SwitchScenes(trigger.GetNextSceneName());
+            GameManager.Instance.SwitchScenes(
+                trigger.GetNextSceneName()
+            );
         }
     }
+
+    // Public Methods
 
     public void SetCondition(string newCondition)
     {
@@ -111,5 +142,38 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("Mosquito condition: " + _cond);
 
         OnConditionChanged?.Invoke(_cond);
+    }
+
+    // Private Methods
+
+    private void TryAbsorbPuddle()
+    {
+        if (_nearbyPuddle == null ||
+            !_interact.WasPressedThisFrame())
+        {
+            return;
+        }
+
+        SetCondition(_nearbyPuddle.GetCondition());
+
+        Debug.Log(
+            "Absorbed puddle: " +
+            _nearbyPuddle.GetCondition()
+        );
+
+        // Uncomment this if each puddle should disappear after use.
+        // Destroy(_nearbyPuddle.gameObject);
+
+        _nearbyPuddle = null;
+
+        SetAbsorbPromptVisible(false);
+    }
+
+    private void SetAbsorbPromptVisible(bool isVisible)
+    {
+        if (_absorbPrompt != null)
+        {
+            _absorbPrompt.SetActive(isVisible);
+        }
     }
 }

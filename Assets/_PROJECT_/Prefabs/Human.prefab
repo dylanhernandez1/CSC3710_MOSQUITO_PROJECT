@@ -1836,7 +1836,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d1fbc096a6f62ea458a4555b88c96ac2, type: 3}
   m_Controller: {fileID: 9100000, guid: 1b3bee431dab4459e98085ac24539bf5, type: 2}
-  m_CullingMode: 1
+  m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -2012,8 +2012,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.94
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 10
+  m_Acceleration: 16
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 4
@@ -2085,8 +2085,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FollowBehavior
   player: {fileID: 0}
   disableMovement: 0
-  followDistance: 30
-  maxFollowableHeight: 10
+  followDistance: 35
+  maxFollowableHeight: 15
   attackRange: 10
   fieldOfView: 90
   _attack:
