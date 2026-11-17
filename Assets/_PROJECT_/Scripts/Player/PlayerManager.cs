@@ -39,7 +39,7 @@ public class PlayerManager : MonoBehaviour
         {
             Instance = this;
         }
-        
+
         _interact = InputSystem.actions.FindAction("Interact");
 
         SetAbsorbPromptVisible(false);
@@ -54,22 +54,35 @@ public class PlayerManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Human"))
         {
+            Debug.Log(
+                "Hit Human. Condition: " + _cond +
+                " | Is Bindable: " + _isBindable
+            );
+
             if (_isBindable)
             {
-                // Then we are dropping a pheromone on them
-                ActionItemBindingManager.Instance.SetBindingHuman(collision.gameObject.GetComponent<HumanManager>(), _cond, currentEffectActionBubble);
+                ActionItemBindingManager.Instance.SetBindingHuman(
+                    collision.gameObject.GetComponent<HumanManager>(),
+                    _cond,
+                    currentEffectActionBubble
+                );
             }
             else
             {
-                Debug.Log("Hit human with " + _cond + " effect");
-                // Then its just an effect
-                collision.gameObject.GetComponent<BehaviorManager>().SetState(_cond);
+                collision.gameObject
+                    .GetComponent<BehaviorManager>()
+                    .SetState(_cond);
+
                 if (_bloodPreFab != null)
                 {
-                    Instantiate(_bloodPreFab, GetComponent<Rigidbody>().transform);
+                    Instantiate(
+                        _bloodPreFab,
+                        GetComponent<Rigidbody>().transform
+                    );
                 }
-                return;
             }
+
+            return;
         }
         // New action item
         else if (collision.gameObject.CompareTag("ActionItem"))
@@ -83,26 +96,24 @@ public class PlayerManager : MonoBehaviour
 
             ActionItem actionItem = collision.gameObject.GetComponent<ActionItem>();
             actionItem.bindingColor = currentPheromoneColor;
-            
+
             //SetCondition(actionItem.currentEffect);
             ActionItemBindingManager.Instance.SetBindingActionItem(actionItem, _cond);
         }
         // Old puddle logic
         else if (collision.gameObject.TryGetComponent<Puddle>(out var puddle))
         {
-            SetCondition(puddle.GetCondition());
-
-            _isBindable = puddle.isPheromone;
-
-            currentEffectActionBubble = puddle.currentEffectActionBubbleText;
-            currentPheromoneColor = puddle.pheromoneColor;
-            
-            // Frankensteining on the prompt stuff - TH
             _nearbyPuddle = puddle;
+
             SetAbsorbPromptVisible(true);
+
+            Debug.Log(
+                "Near puddle. Press Interact to absorb: " +
+                puddle.GetCondition()
+            );
         }
     }
-    
+
     private void OnCollisionExit(Collision collision)
     {
         Puddle puddle =
@@ -156,6 +167,14 @@ public class PlayerManager : MonoBehaviour
         }
 
         SetCondition(_nearbyPuddle.GetCondition());
+
+        _isBindable = _nearbyPuddle.isPheromone;
+
+        currentEffectActionBubble =
+            _nearbyPuddle.currentEffectActionBubbleText;
+
+        currentPheromoneColor =
+            _nearbyPuddle.pheromoneColor;
 
         Debug.Log(
             "Absorbed puddle: " +

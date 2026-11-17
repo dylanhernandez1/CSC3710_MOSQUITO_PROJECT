@@ -60,22 +60,22 @@ public class ConditionAbilityUI : MonoBehaviour
             case "spicy":
                 _abilityImage.sprite = _spicyAbilitySprite;
                 _abilityText.text = "Spicy";
-            break;
+                break;
 
             case "sleep":
                 _abilityImage.sprite = _sleepAbilitySprite;
                 _abilityText.text = "Sleep";
-            break;
+                break;
 
             case "angry":
                 _abilityImage.sprite = _emptyAbilitySprite;
-                _abilityText.text = "angry";
-            break;
+                _abilityText.text = "Default";
+                break;
 
             default:
                 _abilityImage.sprite = _emptyAbilitySprite;
-                _abilityText.text = "angry";
-            break;
+                _abilityText.text = "Default";
+                break;
         }
 
         _abilityImage.preserveAspect = true;

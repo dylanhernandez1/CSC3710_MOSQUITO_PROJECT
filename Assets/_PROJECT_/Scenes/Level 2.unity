@@ -5798,7 +5798,19 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2968227417928533282, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: _events.Array.data[0].stateName
+      value: default
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968227417928533282, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: _events.Array.data[1].stateName
+      value: sleep
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968227417928533282, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
       propertyPath: _events.Array.data[2].condition
+      value: spicy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2968227417928533282, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: _events.Array.data[2].stateName
       value: spicy
       objectReference: {fileID: 0}
     - target: {fileID: 2968227417928533282, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
@@ -5841,6 +5853,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 138648926}
+    - target: {fileID: 8313270449470069688, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190080
+      objectReference: {fileID: 0}
     - target: {fileID: 8765888833222230507, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.5326717
@@ -12160,8 +12176,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8e541edd00054a24ae5993832887091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  usableStationsTag: 
   currentEffect: 
   isBindable: 0
+  isBeingHeld: 0
+  bindingLine: {fileID: 0}
+  bindingColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!135 &1798115097
 SphereCollider:
   m_ObjectHideFlags: 0

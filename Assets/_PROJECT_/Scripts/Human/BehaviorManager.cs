@@ -22,7 +22,7 @@ public class BehaviorManager : MonoBehaviour
 
     [SerializeField] private int _state = 0;
     [SerializeField] private List<condEvent> _events = new();
-    
+
     public HumanManager humanManager;
 
     private NavMeshAgent _agent;
@@ -57,7 +57,8 @@ public class BehaviorManager : MonoBehaviour
         if (_events.Count <= _state)
         {
             Debug.LogError("BehaviorManager tried to play a state that doesn't exist");
-        } else
+        }
+        else
         {
             _events[_state].behavior?.Invoke();
         }
@@ -65,25 +66,56 @@ public class BehaviorManager : MonoBehaviour
 
     public void SetState(string stateName)
     {
-        if ((stateName == "default" || stateName == "") && _events.Count != 0)
+        string requestedState = stateName.Trim().ToLowerInvariant();
+
+        if ((requestedState == "default" || requestedState == "") &&
+            _events.Count != 0)
         {
             _state = 0;
+
+            Debug.Log(
+                gameObject.name +
+                " changed to default behavior."
+            );
+
             return;
         }
 
         for (int i = 0; i < _events.Count; i++)
         {
-            condEvent _event = _events[i];
+            string configuredState =
+                _events[i].stateName.Trim().ToLowerInvariant();
 
-            if (_event.stateName == stateName)
+            if (configuredState == requestedState)
             {
                 _state = i;
-                _animator.SetTrigger("Walk");
-                _agent.isStopped = false;
-                _agent.updateRotation = true;
+
+                Debug.Log(
+                    gameObject.name +
+                    " changed behavior to: " +
+                    configuredState
+                );
+
+                if (_animator != null)
+                {
+                    _animator.SetTrigger("Walk");
+                }
+
+                if (_agent != null)
+                {
+                    _agent.isStopped = false;
+                    _agent.updateRotation = true;
+                }
+
                 return;
             }
         }
+
+        Debug.LogWarning(
+            gameObject.name +
+            " has no configured behavior for condition: " +
+            requestedState
+        );
     }
 
     public int GetState()
