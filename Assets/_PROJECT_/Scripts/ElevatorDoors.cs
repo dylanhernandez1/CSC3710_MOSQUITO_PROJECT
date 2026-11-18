@@ -13,6 +13,7 @@ public class ElevatorDoors : MonoBehaviour
     [SerializeField] private float _leftOpenDistance = 0.75f;
     [SerializeField] private float _rightOpenDistance = 0.75f;
     [SerializeField] private float _moveDuration = 0.5f;
+    [SerializeField] private bool _openDoorsOnStart = false;
 
     private Vector3 _leftClosedPosition;
     private Vector3 _rightClosedPosition;
@@ -37,6 +38,14 @@ public class ElevatorDoors : MonoBehaviour
         if (_doorRight != null)
         {
             _rightClosedPosition = _doorRight.localPosition;
+        }
+    }
+
+    private void Start()
+    {
+        if (_openDoorsOnStart)
+        {
+            OpenDoors();
         }
     }
 
