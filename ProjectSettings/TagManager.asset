@@ -10,11 +10,18 @@ TagManager:
   - TaskStation
   - ActionItem
   - ScrewdriverStation
+  - door
+  - button f4
+  - button f3
+  - button f2
+  - button f6
+  - button f5
+  - button f1
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Floor
   - Water
   - UI
   - HumanPassable
