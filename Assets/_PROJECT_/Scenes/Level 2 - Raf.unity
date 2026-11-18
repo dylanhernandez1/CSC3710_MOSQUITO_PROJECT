@@ -989,6 +989,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lil skeet
       objectReference: {fileID: 0}
+    - target: {fileID: 4639025610693745820, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
+      propertyPath: _absorbPrompt
+      value: 
+      objectReference: {fileID: 470334846}
     - target: {fileID: 6889740752874401628, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42.20441
@@ -8378,6 +8382,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459485819}
   m_Mesh: {fileID: 1448032534}
+--- !u!1 &470334846 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6988984739352977403, guid: 2ed2213b1b980dc42adbac764627cfbd, type: 3}
+  m_PrefabInstance: {fileID: 1379300413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &500818172
 GameObject:
   m_ObjectHideFlags: 0
