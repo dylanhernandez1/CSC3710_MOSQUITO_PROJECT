@@ -10,6 +10,7 @@ public class DrinkingBehavior : MonoBehaviour
     [SerializeField] private GameObject level2VendingMachine;
     [SerializeField] private GameObject level2FakeVial;
     [SerializeField] private GameObject level2RealVial;
+    [SerializeField] private Transform level2DrinkingPos;
 
     [SerializeField] private float vendingTiltAmount = 3f; // degrees
     [SerializeField] private float vendingTiltSpeed = 4f;
@@ -20,6 +21,8 @@ public class DrinkingBehavior : MonoBehaviour
     private float curTime;
     private bool debounce = false;
     private Animator _animator;
+
+    private Transform _originalHumanLocation;
 
     private void Awake()
     {
@@ -34,7 +37,10 @@ public class DrinkingBehavior : MonoBehaviour
     public void Drink()
     {
         _manager.humanManager.uIManager.SetActionBubbleContent("<sprite=7>");
-        TiltVendingMachine();
+        if (level2VendingMachine != null)
+        {
+            TiltVendingMachine();
+        }
 
         if (debounce == false)
         {
@@ -42,6 +48,11 @@ public class DrinkingBehavior : MonoBehaviour
             _animator.SetTrigger(trigger);
             level2FakeVial.SetActive(false);
             level2RealVial.SetActive(true);
+            if (level2DrinkingPos != null)
+            {
+                transform.position = level2DrinkingPos.position;
+                transform.rotation = level2DrinkingPos.rotation;
+            }
         }
 
         if (curTime <= 0)
@@ -50,6 +61,11 @@ public class DrinkingBehavior : MonoBehaviour
             gameObject.GetComponent<BehaviorManager>().SetState("default");
             level2VendingMachine.transform.localRotation = vendingStartRotation;
             debounce = false;
+            if (level2VendingMachine != null)
+            {
+                transform.position = _originalHumanLocation.position;
+                transform.rotation = _originalHumanLocation.rotation;
+            }
         } else
         {
             curTime -= Time.deltaTime;
