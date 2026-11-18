@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
             (_flyDown.IsPressed() ? 1f : 0f);
 
         // Handle dash input
-        if (_dash.WasPressedThisFrame())
+        if (_dash.WasPressedThisFrame() && !isDashing)
             InitDash();
     }
 
