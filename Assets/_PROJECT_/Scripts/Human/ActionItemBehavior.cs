@@ -61,6 +61,8 @@ public class ActionItemBehavior : MonoBehaviour
                 // Interact with station
                 Debug.Log($"[{name}] Interacting with station [{station.name}]");
                 station.Interact();
+                station = null;
+                isHoldingItem = false;
 
                 // Remove binding
                 ActionItemBindingManager.Instance.RemoveBindingForHuman(_manager.humanManager);
