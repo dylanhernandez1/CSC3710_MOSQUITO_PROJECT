@@ -21386,6 +21386,7 @@ MonoBehaviour:
   level2VendingMachine: {fileID: 0}
   level2FakeVial: {fileID: 0}
   level2RealVial: {fileID: 0}
+  level2DrinkingPos: {fileID: 0}
   vendingTiltAmount: 3
   vendingTiltSpeed: 4
 --- !u!1 &1658999823 stripped
@@ -26256,7 +26257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6858360057946063720, guid: 9c07bdd729e4b984da7d09a36eb95d12, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6926712147925667433, guid: 9c07bdd729e4b984da7d09a36eb95d12, type: 3}
       propertyPath: m_Size.x
