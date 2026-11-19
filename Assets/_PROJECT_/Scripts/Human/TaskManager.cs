@@ -115,6 +115,8 @@ public class TaskManager : MonoBehaviour
         {
             _remainingTaskTime -= Time.deltaTime;
 
+            _manager.humanManager.uIManager.SetActionBubbleContent($"<sprite=2>");
+
             AnimatorStateInfo state = _animator.GetCurrentAnimatorStateInfo(0);
             if (state.IsName("Base Layer.WalkBlendTree") && !_animator.IsInTransition(0))
             {

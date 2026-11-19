@@ -11345,6 +11345,14 @@ PrefabInstance:
       propertyPath: station
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1811178431488056208, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3884bf231f7f16340aebe1e78399228c, type: 2}
+    - target: {fileID: 1811178431488056208, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3884bf231f7f16340aebe1e78399228c, type: 2}
     - target: {fileID: 2968227417928533282, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
       propertyPath: _events.Array.size
       value: 3
@@ -31059,6 +31067,10 @@ PrefabInstance:
       propertyPath: station
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1811178431488056208, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3884bf231f7f16340aebe1e78399228c, type: 2}
     - target: {fileID: 2968227417928533282, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
       propertyPath: _events.Array.size
       value: 3
@@ -92169,6 +92181,14 @@ PrefabInstance:
       propertyPath: station
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1811178431488056208, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3884bf231f7f16340aebe1e78399228c, type: 2}
+    - target: {fileID: 1811178431488056208, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3884bf231f7f16340aebe1e78399228c, type: 2}
     - target: {fileID: 2968227417928533282, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
       propertyPath: _events.Array.size
       value: 3
@@ -94159,7 +94179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be907cbe8303d04facc0274e3b5294d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskStation
-  _startTrigger: StartDance1
+  _startTrigger: StartFrustrated
   _endTrigger: 
   _taskTime: 15
   _location: {fileID: 722075578}
