@@ -61,6 +61,8 @@ public class ActionItemBehavior : MonoBehaviour
                 // Interact with station
                 Debug.Log($"[{name}] Interacting with station [{station.name}]");
                 station.Interact();
+                station = null;
+                isHoldingItem = false;
 
                 // Remove binding
                 ActionItemBindingManager.Instance.RemoveBindingForHuman(_manager.humanManager);
@@ -114,7 +116,11 @@ public class ActionItemBehavior : MonoBehaviour
         foreach (var station in FindObjectsByType<ActionItemStation>())
         {
             if (station.CompareTag(targetItem.usableStationsTag))
+            {
                 usableStations.Add(station);
+                Debug.Log("Station Added");
+            }
+            
         }
 
         // Find the closest station using Linq List aggregation

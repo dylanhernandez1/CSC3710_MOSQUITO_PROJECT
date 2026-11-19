@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5892392011686034528}
   - component: {fileID: 2720119622179729011}
   - component: {fileID: 934149522511429576}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg L front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384692650080983191}
   - component: {fileID: 4670511758740041098}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 7028260837585788334}
   - component: {fileID: 6866491036893645466}
   - component: {fileID: 7601831663960111987}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg R back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3559156667054913163}
   - component: {fileID: 9136736539145894217}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 6486020688708494318}
   - component: {fileID: 381208204753463986}
   - component: {fileID: 6940002054178212461}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -538,7 +538,7 @@ GameObject:
   - component: {fileID: 5229680952842408849}
   - component: {fileID: 2148270599439214621}
   - component: {fileID: 4378327197487361457}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wing  R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3638824574736774857}
   - component: {fileID: 3852328444238962250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -741,7 +741,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3335136776343437890}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CameraPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,7 +757,7 @@ Transform:
   m_GameObject: {fileID: 2849294667262686920}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -778,7 +778,7 @@ GameObject:
   - component: {fileID: 2230769747566652275}
   - component: {fileID: 4639025610693745820}
   - component: {fileID: -7205603177102129630}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lil skeet
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1026,7 +1026,7 @@ GameObject:
   - component: {fileID: 8425889380508488828}
   - component: {fileID: 2714035813708693590}
   - component: {fileID: 7280757286170466500}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: proboscis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1140,7 +1140,7 @@ GameObject:
   - component: {fileID: 8412592926167026518}
   - component: {fileID: 6054898177171926254}
   - component: {fileID: 5876297495521153260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1277,7 +1277,7 @@ GameObject:
   - component: {fileID: 6146845675620022229}
   - component: {fileID: 964330914669966956}
   - component: {fileID: 3782835973255207043}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg L back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1391,7 +1391,7 @@ GameObject:
   - component: {fileID: 828273580744111572}
   - component: {fileID: 5905860372841473228}
   - component: {fileID: 1132612721101775923}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wing L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1505,7 +1505,7 @@ GameObject:
   - component: {fileID: 5080486656118111719}
   - component: {fileID: 5451705182581595832}
   - component: {fileID: 7041382845342214833}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: leg R front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1616,7 +1616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2789411239537665760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left eye (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1653,7 +1653,7 @@ GameObject:
   - component: {fileID: 775516905309014447}
   - component: {fileID: 6566669085220790338}
   - component: {fileID: 6146198625089603682}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1766,7 +1766,7 @@ GameObject:
   - component: {fileID: 9076815496559498418}
   - component: {fileID: 7714096238302089342}
   - component: {fileID: 1729579632005816628}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DashParts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6658,7 +6658,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2394249087720485324}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wholebody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6699,7 +6699,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4268726518994490437}
   - component: {fileID: 2071978633098298997}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6791,7 +6791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6223763046193333581}
   - component: {fileID: 3461228996706100324}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6882,7 +6882,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1935998651569678853}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6916,7 +6916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8915947047751648784}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6949,7 +6949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3919434234584000609}
   - component: {fileID: 7471297033381130919}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
