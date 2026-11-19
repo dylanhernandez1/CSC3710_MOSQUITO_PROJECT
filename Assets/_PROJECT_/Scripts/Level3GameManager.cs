@@ -1,9 +1,10 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Level3GameManager : MonoBehaviour
 {
-    [SerializeField] private SlidingDoor door;
+    [SerializeField] private UnityEvent _onPasswordCorrect;
     private AudioSource _source;
     [SerializeField] private AudioClip _correct;
     [SerializeField] private AudioClip _incorrect;
@@ -50,15 +51,15 @@ public class Level3GameManager : MonoBehaviour
             if (_currentStep == 4)
             {
                 Debug.Log("Password correct!");
-                door.Open();
+                _onPasswordCorrect?.Invoke();
             }
-        } else if (button < _currentStep)
+        }
+        else if (button < _currentStep)
         {
             Debug.Log("Previous button was pressed, not resetting password");
         }
         else
         {
-            
             Debug.Log("Wrong button! Resetting password.");
             _currentStep = 0;
             _source.PlayOneShot(_incorrect);
