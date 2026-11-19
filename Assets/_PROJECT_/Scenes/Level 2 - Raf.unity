@@ -1172,10 +1172,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8412592926167026518, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
+      propertyPath: near clip plane
+      value: 0.02
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4458863034076568588, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 323428692}
   m_SourcePrefab: {fileID: 100100000, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
 --- !u!114 &138648923 stripped
 MonoBehaviour:
@@ -2965,6 +2972,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308562216}
   m_Mesh: {fileID: 1251196663}
+--- !u!1 &323428691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4458863034076568588, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
+  m_PrefabInstance: {fileID: 138648922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &323428692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323428691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c68d36b81073f314695f8d2988465182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraCollisionScript
+  _pivot: {fileID: 1689448042}
+  _collisionMask:
+    serializedVersion: 2
+    m_Bits: 255
+  _radius: 0.2
+  _bufferDistance: 0.05
+  _minDistance: 0.3
+  _returnSpeed: 6
+  _hideDistance: 1.25
 --- !u!1 &326145846
 GameObject:
   m_ObjectHideFlags: 0
@@ -22248,6 +22281,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661055625}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1689448042 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2849294667262686920, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
+  m_PrefabInstance: {fileID: 138648922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1695416648
 GameObject:
   m_ObjectHideFlags: 0
