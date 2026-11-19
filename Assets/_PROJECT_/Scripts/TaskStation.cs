@@ -11,6 +11,7 @@ public class TaskStation : MonoBehaviour
     [SerializeField] private float _taskTime = 30f;
     // Location/game object where the human should perform its animations
     [SerializeField] private Transform _location;
+    [SerializeField] public int _sprite = 8;
     
     public string GetStartTrigger()
     {
