@@ -23247,11 +23247,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 0.048831787, z: 2}
   m_Center: {x: 0, y: 0.024415417, z: 0.00000029802322}
---- !u!136 &1864166803 stripped
-CapsuleCollider:
-  m_CorrespondingSourceObject: {fileID: 878101662565930126, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
-  m_PrefabInstance: {fileID: 6590757822428244598}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1866943010 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6354939078411049169, guid: 9242ab9ff22404327988fdbf886a8302, type: 3}
@@ -27560,10 +27555,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 138648926}
-    - target: {fileID: 8020334549350114969, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
-      propertyPath: handHitbox
-      value: 
-      objectReference: {fileID: 1864166803}
     - target: {fileID: 8313270449470069688, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
       propertyPath: m_text
       value: <sprite=8>

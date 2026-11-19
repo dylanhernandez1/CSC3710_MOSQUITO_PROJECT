@@ -2088,7 +2088,7 @@ MonoBehaviour:
   player: {fileID: 0}
   disableMovement: 0
   followDistance: 35
-  maxFollowableHeight: 15
+  maxFollowableHeight: 17
   attackRange: 10
   fieldOfView: 90
   _attack:
