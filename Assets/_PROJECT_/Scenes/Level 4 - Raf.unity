@@ -743,6 +743,12 @@ MonoBehaviour:
   drinkTime: 10
   bottle: {fileID: 786171056}
   trigger: StartDrinking
+  level2VendingMachine: {fileID: 0}
+  level2FakeVial: {fileID: 0}
+  level2RealVial: {fileID: 0}
+  level2DrinkingPos: {fileID: 0}
+  vendingTiltAmount: 3
+  vendingTiltSpeed: 4
 --- !u!114 &19962957 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8840329032981977038, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
@@ -8817,11 +8823,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6889740752874401628, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 10.2
       objectReference: {fileID: 0}
     - target: {fileID: 6889740752874401628, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 80.06971
+      value: 80.9
       objectReference: {fileID: 0}
     - target: {fileID: 6889740752874401628, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8872,6 +8878,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6889740752874401628, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
   m_PrefabInstance: {fileID: 138648922}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &139083032
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1427634015435084, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+      propertyPath: m_Name
+      value: elevator cabin (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079758420479070, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079758420479070, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079758420479070, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 92.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079758420479070, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079758420479070, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079758420479070, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079758420479070, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079758420479070, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079758420479070, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4079758420479070, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 205175315948481875, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+      propertyPath: _nextSceneName
+      value: _PROJECT_/Scenes/Level 4 - Raf
+      objectReference: {fileID: 0}
+    - target: {fileID: 6719070025641981760, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+      propertyPath: _openDoorsOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 1891177500390843087, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a26631d6c4fdb4f4bb0dd16260a79125, type: 3}
 --- !u!1 &139234239
 GameObject:
   m_ObjectHideFlags: 0
@@ -29750,6 +29822,12 @@ MonoBehaviour:
   drinkTime: 10
   bottle: {fileID: 1363014033}
   trigger: StartDrinking
+  level2VendingMachine: {fileID: 0}
+  level2FakeVial: {fileID: 0}
+  level2RealVial: {fileID: 0}
+  level2DrinkingPos: {fileID: 0}
+  vendingTiltAmount: 3
+  vendingTiltSpeed: 4
 --- !u!114 &511581080 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8840329032981977038, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
@@ -31746,7 +31824,7 @@ Transform:
   m_GameObject: {fileID: 567956927}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.40828, y: -42.16954, z: -63.615692}
+  m_LocalPosition: {x: 48.6, y: -42.16954, z: -63.615692}
   m_LocalScale: {x: 34.632103, y: 10.006854, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -95664,6 +95742,12 @@ MonoBehaviour:
   drinkTime: 10
   bottle: {fileID: 0}
   trigger: StartDrinking
+  level2VendingMachine: {fileID: 0}
+  level2FakeVial: {fileID: 0}
+  level2RealVial: {fileID: 0}
+  level2DrinkingPos: {fileID: 0}
+  vendingTiltAmount: 3
+  vendingTiltSpeed: 4
 --- !u!114 &1657005424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161734,3 +161818,4 @@ SceneRoots:
   - {fileID: 8192329651262982470}
   - {fileID: 55821279}
   - {fileID: 1502674437}
+  - {fileID: 139083032}

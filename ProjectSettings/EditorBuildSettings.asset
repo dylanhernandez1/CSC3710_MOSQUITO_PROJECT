@@ -23,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_PROJECT_/Scenes/Level 2 - Raf.unity
     guid: a264533fd03ca814885697099214f21d
+  - enabled: 1
+    path: Assets/_PROJECT_/Scenes/Level 4 - Raf.unity
+    guid: f81e1e8e310544540bc047cd72dcd34d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
