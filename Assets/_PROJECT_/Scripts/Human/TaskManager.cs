@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.ProBuilder.Shapes;
 
 /*
  * HOW TO USE: this can all be done from the inspector tab
@@ -62,7 +64,10 @@ public class TaskManager : MonoBehaviour
         }
 
         // Update the activity bubble
-        _manager.humanManager.uIManager.SetActionBubbleContent($"<sprite={(isDoingTask ? 8 : 2)}>");
+        if (!isDoingTask)
+        {
+            _manager.humanManager.uIManager.SetActionBubbleContent($"<sprite=2>");
+        }
 
         
         if (_remainingTaskTime <= 0)
@@ -114,6 +119,11 @@ public class TaskManager : MonoBehaviour
         if (other.gameObject == _stations[_curStation].gameObject && _manager.GetState() == _behaveState)
         {
             _remainingTaskTime -= Time.deltaTime;
+            
+            if (other.ConvertTo<TaskStation>()._sprite != 0)
+            {
+                _manager.humanManager.uIManager.SetActionBubbleContent($"<sprite={other.ConvertTo<TaskStation>()._sprite}>");
+            }
 
             AnimatorStateInfo state = _animator.GetCurrentAnimatorStateInfo(0);
             if (state.IsName("Base Layer.WalkBlendTree") && !_animator.IsInTransition(0))

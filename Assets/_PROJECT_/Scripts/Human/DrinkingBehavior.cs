@@ -69,6 +69,7 @@ public class DrinkingBehavior : MonoBehaviour
                 transform.position = _originalHumanLocation.position;
                 transform.rotation = _originalHumanLocation.rotation;
             }
+            Debug.Log("DRINKING RESET due to curtime");
         } else
         {
             curTime -= Time.deltaTime;
