@@ -691,23 +691,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4452541911570831544, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4639025610693745820, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6352329642030498738, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.030001163
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6352329642030498738, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5500001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6352329642030498738, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.8200014
+      value: -6
       objectReference: {fileID: 0}
     - target: {fileID: 6352329642030498738, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -769,6 +769,10 @@ PrefabInstance:
       propertyPath: field of view
       value: 60.000004
       objectReference: {fileID: 0}
+    - target: {fileID: 8412592926167026518, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
+      propertyPath: near clip plane
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 8874001162411129161, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
       propertyPath: m_Constraints
       value: 80
@@ -796,7 +800,7 @@ PrefabInstance:
       addedObject: {fileID: 1951372830}
     - targetCorrespondingSourceObject: {fileID: 4458863034076568588, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 809836965}
+      addedObject: {fileID: 809836970}
   m_SourcePrefab: {fileID: 100100000, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
 --- !u!114 &138648923 stripped
 MonoBehaviour:
@@ -804,7 +808,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 138648922}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951372824}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fce949294a404cf419d6db3ac10c722a, type: 3}
   m_Name: 
@@ -9368,7 +9372,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4458863034076568588, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
   m_PrefabInstance: {fileID: 138648922}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &809836965
+--- !u!20 &809836968 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8412592926167026518, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
+  m_PrefabInstance: {fileID: 138648922}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &809836970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9377,34 +9386,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 809836963}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Script: {fileID: 11500000, guid: c68d36b81073f314695f8d2988465182, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBrain
-  ShowDebugText: 0
-  ShowCameraFrustum: 1
-  IgnoreTimeScale: 0
-  WorldUpOverride: {fileID: 0}
-  ChannelMask: -1
-  UpdateMethod: 2
-  BlendUpdateMethod: 1
-  LensModeOverride:
-    Enabled: 0
-    DefaultMode: 2
-  DefaultBlend:
-    Style: 1
-    Time: 2
-    CustomCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  CustomBlends: {fileID: 0}
---- !u!20 &809836968 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8412592926167026518, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
-  m_PrefabInstance: {fileID: 138648922}
-  m_PrefabAsset: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::CameraCollisionScript
+  _pivot: {fileID: 1830989196}
+  _collisionMask:
+    serializedVersion: 2
+    m_Bits: 247
+  _radius: 0.2
+  _bufferDistance: 0.05
+  _minDistance: 0.3
+  _returnSpeed: 6
+  _hideDistance: 1.25
 --- !u!1 &821324931 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1430905438541683037, guid: 9c07bdd729e4b984da7d09a36eb95d12, type: 3}
@@ -17269,6 +17262,7 @@ MonoBehaviour:
   level2VendingMachine: {fileID: 0}
   level2FakeVial: {fileID: 0}
   level2RealVial: {fileID: 0}
+  level2DrinkingPos: {fileID: 0}
   vendingTiltAmount: 3
   vendingTiltSpeed: 4
 --- !u!1 &1658999823 stripped
@@ -18619,6 +18613,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 0.048831787, z: 2}
   m_Center: {x: 0, y: 0.024415893, z: 0.0000019669533}
+--- !u!1 &1830989196 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2849294667262686920, guid: 941641cd12a8a4596aff2b8481bcf1d5, type: 3}
+  m_PrefabInstance: {fileID: 138648922}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1848328148 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6188437191691249470, guid: 9c07bdd729e4b984da7d09a36eb95d12, type: 3}
@@ -19058,7 +19057,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951372824}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e3e4a63d29159f4a9ae5cfd0f06b9f3, type: 3}
   m_Name: 
@@ -19075,7 +19074,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 138648922}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951372824}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea51eb5238cc60c4e8c60c804d8a5f87, type: 3}
   m_Name: 
@@ -19087,12 +19086,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951372824}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bcda975a5eb8b6408ab41c461d43c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TogglePlayerManager
-  brain: {fileID: 809836965}
+  brain: {fileID: 0}
   noclipScript: {fileID: 1951372827}
   flight: {fileID: 1951372825}
   bloodPreFab: {fileID: 3497674227057355505, guid: 7c677db5cedb1014ab72380ec886a970, type: 3}

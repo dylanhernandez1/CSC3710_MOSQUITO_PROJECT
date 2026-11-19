@@ -7,12 +7,12 @@ public class CameraCollisionScript : MonoBehaviour
 {
     [SerializeField] GameObject _pivot;
     [SerializeField] LayerMask _collisionMask;
-    [SerializeField] float _radius;
-    [SerializeField] float _bufferDistance;
-    [SerializeField] float _minDistance;
+    [SerializeField] float _radius = 0.20f;
+    [SerializeField] float _bufferDistance = 0.05f;
+    [SerializeField] float _minDistance = 0.3f;
 
-    [SerializeField] float _returnSpeed;
-    [SerializeField] float _hideDistance;
+    [SerializeField] float _returnSpeed = 6f;
+    [SerializeField] float _hideDistance = 1.25f;
 
     private Camera _camera;
 

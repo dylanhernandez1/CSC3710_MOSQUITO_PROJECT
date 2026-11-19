@@ -116,7 +116,11 @@ public class ActionItemBehavior : MonoBehaviour
         foreach (var station in FindObjectsByType<ActionItemStation>())
         {
             if (station.CompareTag(targetItem.usableStationsTag))
+            {
                 usableStations.Add(station);
+                Debug.Log("Station Added");
+            }
+            
         }
 
         // Find the closest station using Linq List aggregation

@@ -29,7 +29,10 @@ public class DrinkingBehavior : MonoBehaviour
         curTime = drinkTime;
         _manager = GetComponent<BehaviorManager>();
         _animator = GetComponent<Animator>();
-        vendingStartRotation = level2VendingMachine.transform.localRotation;
+        if (level2VendingMachine != null)
+        {
+            vendingStartRotation = level2VendingMachine.transform.localRotation;
+        }
         tiltSeed = Random.value * 100f;
     }
 
