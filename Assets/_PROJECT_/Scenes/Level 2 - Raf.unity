@@ -9489,6 +9489,14 @@ PrefabInstance:
       propertyPath: station
       value: 
       objectReference: {fileID: 520608157}
+    - target: {fileID: 1811178431488056208, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3884bf231f7f16340aebe1e78399228c, type: 2}
+    - target: {fileID: 1811178431488056208, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3884bf231f7f16340aebe1e78399228c, type: 2}
     - target: {fileID: 2968227417928533282, guid: 15bd501b833b34f48ad88fc2e386a5ad, type: 3}
       propertyPath: _events.Array.size
       value: 3
@@ -21973,7 +21981,7 @@ MonoBehaviour:
   level2VendingMachine: {fileID: 1028624352}
   level2FakeVial: {fileID: 4441368003521393955}
   level2RealVial: {fileID: 530921449}
-  level2DrinkingPos: {fileID: 0}
+  level2DrinkingPos: {fileID: 446564011}
   vendingTiltAmount: 3
   vendingTiltSpeed: 4
 --- !u!43 &1657823153
@@ -26067,8 +26075,8 @@ MonoBehaviour:
   tiltIntensity: 5
   fragmentLifetime: 3
   audioSource: {fileID: 991763070720060084}
-  shatterSound: {fileID: 8300000, guid: ecc6558c24541464badd53443a9082bc, type: 3}
-  fractureSound: {fileID: 8300000, guid: 527f92c39df3d7a4494f020b8216fee5, type: 3}
+  shatterSound: {fileID: 8300000, guid: 9eb879a2d68615e499ec6a5893c8fed3, type: 3}
+  fractureSound: {fileID: 8300000, guid: 43dddb85bc4c9b848b746727fec483cb, type: 3}
   audioVolume: 1
   pitchRandomness: 0.2
   cinematicMode: 0

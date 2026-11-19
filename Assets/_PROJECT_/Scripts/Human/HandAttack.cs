@@ -164,6 +164,6 @@ public class HandAttack : MonoBehaviour
 
         // Re-enable follow logic
         _followBehavior.disableMovement = false;
-        _isAttacking = false;
+        AttackFinished();
     }
 }

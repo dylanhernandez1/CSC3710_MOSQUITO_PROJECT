@@ -1861,6 +1861,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HumanManager
   behaviorManager: {fileID: 2968227417928533282}
   uIManager: {fileID: 1783782047284696353}
+  actionItemBehavior: {fileID: 0}
+  _level4splat: {fileID: 0}
 --- !u!114 &1783782047284696353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2117,7 +2119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HandAttack
   player: {fileID: 0}
-  handHitbox: {fileID: 0}
+  handHitbox: {fileID: 878101662565930126}
   _handTransform: {fileID: 4276720576716618495}
   _handTargetTransform: {fileID: 2121378089652146615}
   _slapStartPosTransform: {fileID: 1498564115987693229}
